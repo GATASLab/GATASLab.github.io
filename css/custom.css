@@ -1,0 +1,340 @@
+/* ---------------------------------------------------------------------------
+   GATAS Lab site components, layered on top of the Relearn theme.
+   Colors come from the theme variant files (theme-gatas-*.css).
+   --------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: JuliaMono-Regular;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2") format("woff2");
+}
+
+#R-body code,
+#R-body pre {
+  font-family: JuliaMono-Regular, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* --- card grid (home page, projects, sponsors) ---------------------------- */
+
+.gatas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.gatas-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 6px;
+  background: var(--GATAS-CARD-BG-color);
+  overflow: hidden;
+}
+
+.gatas-card__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 11rem;
+  padding: 1rem;
+  background: var(--MAIN-BG-color);
+  border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+.gatas-card__thumb img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+
+.gatas-card__body { padding: 0.9rem 1rem 1.1rem; }
+
+.gatas-card__body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.gatas-card__body p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+/* --- media list (members, alumni, papers) --------------------------------- */
+
+.gatas-list { margin: 1.5rem 0; }
+
+.gatas-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+.gatas-item:last-child { border-bottom: 1px solid var(--GATAS-CARD-BORDER-color); }
+
+.gatas-item__thumb {
+  flex: 0 0 11rem;
+  max-width: 11rem;
+}
+
+.gatas-item__thumb img {
+  width: 100%;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.gatas-item__body { flex: 1 1 auto; min-width: 0; }
+
+.gatas-item__body h3 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+
+.gatas-item__meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-item__meta span + span::before { content: " · "; }
+
+@media screen and (max-width: 48rem) {
+  .gatas-item { flex-direction: column; }
+  .gatas-item__thumb { flex-basis: auto; max-width: 14rem; }
+}
+
+/* --- person header on member pages ---------------------------------------- */
+
+.gatas-person {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.gatas-person__photo { flex: 0 0 13rem; max-width: 13rem; }
+.gatas-person__photo img { width: 100%; border-radius: 6px; margin: 0; }
+.gatas-person__meta { flex: 1 1 auto; }
+
+.gatas-person__meta dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 0.9rem;
+  margin: 0 0 0.9rem;
+}
+
+/* The theme italicises dt and makes dd a list-item; in a two-column grid the
+   list marker is drawn outside the dd's box, i.e. into the label column. */
+.gatas-person__meta dt {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-person__meta dd {
+  display: block;
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .gatas-person { flex-direction: column; }
+}
+
+.gatas-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.gatas-btn {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--INTERNAL-MAIN-LINK-color);
+  border-radius: 4px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.gatas-btn:hover {
+  background: var(--INTERNAL-MAIN-LINK-color);
+  color: var(--MAIN-BG-color) !important;
+}
+
+/* --- data tables ----------------------------------------------------------- */
+
+.gatas-tablewrap { margin: 1.25rem 0; }
+
+.gatas-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.gatas-filter input,
+.gatas-filter select {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 4px;
+  background: var(--MAIN-BG-color);
+  color: var(--MAIN-TEXT-color);
+  font-size: 0.9rem;
+}
+
+.gatas-filter input { flex: 1 1 14rem; min-width: 10rem; }
+
+.gatas-scroll { overflow-x: auto; }
+
+table.gatas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.gatas-table th,
+table.gatas-table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+table.gatas-table thead th {
+  background: var(--GATAS-TABLE-HEAD-BG-color);
+  border-bottom: 2px solid var(--GATAS-CARD-BORDER-color);
+  white-space: nowrap;
+}
+
+table.gatas-table tbody tr:nth-child(even) { background: var(--GATAS-TABLE-STRIPE-BG-color); }
+table.gatas-table tbody tr:hover { background: var(--MENU-SECTIONS-ACTIVE-BG-color); }
+
+table.gatas-table th[data-sort] { cursor: pointer; user-select: none; }
+table.gatas-table th[data-sort]::after { content: " ⇅"; opacity: 0.35; font-size: 0.8em; }
+table.gatas-table th[data-sort][aria-sort="ascending"]::after { content: " ↑"; opacity: 1; }
+table.gatas-table th[data-sort][aria-sort="descending"]::after { content: " ↓"; opacity: 1; }
+
+table.gatas-table td img.gatas-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0;
+}
+
+.gatas-count { font-size: 0.85rem; color: var(--GATAS-MUTED-color); margin: 0.4rem 0 0; }
+
+/* --- bibliography ---------------------------------------------------------- */
+
+.gatas-bib { margin: 1rem 0 2rem; }
+
+.gatas-bib li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  list-style: none;
+}
+
+.gatas-bib ol, .gatas-bib ul { padding-left: 0; margin-left: 0; }
+.gatas-bib .bib-title { font-style: italic; }
+
+/* --- photo gallery + lightbox --------------------------------------------- */
+
+/* Thumbnails are cropped to a common shape so the grid stays even. The photos
+   mix portrait and landscape and the subject sits somewhere different in each,
+   so the framing point is per-image: the gallery shortcode writes an
+   object-position from the `crop` field in front matter, defaulting to centre.
+   The lightbox always shows the uncropped frame. */
+.gatas-gallery {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.gatas-gallery figure { margin: 0; }
+
+.gatas-gallery img {
+  width: 100%;
+  aspect-ratio: var(--gatas-crop-aspect, 4 / 3);
+  object-fit: cover;
+  object-position: var(--gatas-crop-position, center);
+  border-radius: 4px;
+  cursor: zoom-in;
+  margin: 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .gatas-gallery { grid-template-columns: 1fr !important; }
+}
+
+.gatas-gallery figcaption {
+  font-size: 0.85rem;
+  color: var(--GATAS-MUTED-color);
+  padding-top: 0.35rem;
+}
+
+dialog.gatas-lightbox {
+  border: 0;
+  padding: 0;
+  max-width: 96vw;
+  max-height: 96vh;
+  background: transparent;
+  color: #fff;
+}
+
+dialog.gatas-lightbox::backdrop { background: rgba(0, 0, 0, 0.86); }
+dialog.gatas-lightbox img { display: block; max-width: 96vw; max-height: 86vh; margin: 0 auto; }
+
+dialog.gatas-lightbox figcaption {
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.92rem;
+  color: #eee;
+}
+
+dialog.gatas-lightbox .gatas-lightbox__close {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* --- misc ------------------------------------------------------------------ */
+
+.gatas-banner { margin: 0 0 1.5rem; }
+.gatas-banner img { width: 100%; max-width: 46rem; margin: 0; }
+
+.gatas-sponsor-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.gatas-sponsor-logos img { max-height: 4.5rem; width: auto; margin: 0; }
+
+#R-body .gatas-embed {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 4px;
+}
+
+/* Both embeds scroll internally, so size them against the viewport rather than
+   pinning a pixel height that overflows on a phone. */
+#R-body .gatas-embed--map { height: min(25rem, 60vh); min-height: 15rem; }
+#R-body .gatas-embed--doc { height: 80vh; min-height: 24rem; }
+
+.gatas-embed-fallback {
+  margin: 0.4rem 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+/* The theme hyphenates body text, which on a phone breaks headings
+   mid-word ("Accepting ap-plications for"). */
+#R-body h1, #R-body h2, #R-body h3, #R-body h4, #R-body h5 { hyphens: manual; }
