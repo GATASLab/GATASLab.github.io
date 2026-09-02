@@ -58,10 +58,12 @@
 }
 
 .gatas-card__body p {
-  margin: 0;
+  margin: 0 0 0.5rem;
   font-size: 0.92rem;
   color: var(--GATAS-MUTED-color);
 }
+
+.gatas-card__body > :last-child { margin-bottom: 0; }
 
 /* --- media list (members, alumni, papers) --------------------------------- */
 
@@ -338,3 +340,62 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 /* The theme hyphenates body text, which on a phone breaks headings
    mid-word ("Accepting ap-plications for"). */
 #R-body h1, #R-body h2, #R-body h3, #R-body h4, #R-body h5 { hyphens: manual; }
+
+
+/* --- lab-portfolio adjustments ------------------------------------------- */
+
+/* Relearn targets a documentation reading measure; a portfolio wants room for
+   images. */
+:root { --MAIN-WIDTH-MAX: 96rem; }
+
+/* Headings sized up from the theme's dense reference scale, with more air. */
+#R-body h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
+#R-body h2 { font-size: 1.9rem; margin-top: 2.4rem; }
+#R-body h3 { font-size: 1.3rem; }
+#R-body article > p { line-height: 1.7; }
+
+/* A grid of faces reads as a lab; a stacked list reads as an index. */
+.gatas-grid--people { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+
+.gatas-grid--people .gatas-card__thumb {
+  height: 15rem;
+  padding: 0;
+  background: var(--GATAS-CARD-BG-color);
+}
+
+.gatas-grid--people .gatas-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.gatas-grid--people .gatas-card__body { padding: 0.75rem 0.9rem 0.9rem; }
+.gatas-grid--people .gatas-card__body h3 { font-size: 1.05rem; }
+.gatas-grid--people .gatas-item__meta { font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+/* Software cards have no image, so they need their own rhythm. */
+.gatas-grid--software .gatas-card__body h3 {
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+.gatas-grid--software .gatas-links { margin-top: 0.6rem; }
+
+/* Home page hero: the banner sits full width above the page title. */
+.gatas-hero { margin: 0 0 1.75rem; }
+
+/* !important because the theme's image render hook writes an inline
+   style="height:auto;width:auto", which otherwise wins and lets the banner
+   render at its natural 1779px and overflow the column. */
+.gatas-hero img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 6px;
+  margin: 0;
+}
+.gatas-hero__tagline {
+  margin: 0.9rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--GATAS-MUTED-color);
+}
