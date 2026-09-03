@@ -399,3 +399,15 @@ dialog.gatas-lightbox .gatas-lightbox__close {
   line-height: 1.5;
   color: var(--GATAS-MUTED-color);
 }
+
+/* Annotations on bibliography and project entries. Set slightly narrower than
+   the surrounding text so a run of them reads as commentary, not body copy. */
+.gatas-annotation {
+  margin: 0.4rem 0 0;
+  max-width: 46rem;
+  font-size: 0.94rem;
+  color: var(--MAIN-TEXT-color);
+  border-left: 2px solid var(--GATAS-BOX-NOTE-color, currentColor);
+  padding-left: 0.75rem;
+  opacity: 0.88;
+}
