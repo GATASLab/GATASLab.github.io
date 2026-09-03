@@ -411,3 +411,13 @@ dialog.gatas-lightbox .gatas-lightbox__close {
   padding-left: 0.75rem;
   opacity: 0.88;
 }
+
+/* "Read it for" is guidance for our own students rather than part of the
+   citable annotation, so it is set apart from the paragraph above it. */
+.gatas-annotation--guide { font-size: 0.88rem; opacity: 0.8; }
+.gatas-annotation--guide span {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+.gatas-annotation p { display: inline; margin: 0; }
