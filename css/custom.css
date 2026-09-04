@@ -245,6 +245,16 @@ table.gatas-table th[data-sort]::after { content: " ⇅"; opacity: 0.35; font-si
 table.gatas-table th[data-sort][aria-sort="ascending"]::after { content: " ↑"; opacity: 1; }
 table.gatas-table th[data-sort][aria-sort="descending"]::after { content: " ↓"; opacity: 1; }
 
+/* The link column is optional per row. Keep it narrow so a table of mostly
+   dashes does not steal width from the title, and mute the dash so an absent
+   deck reads as "none posted" rather than as a broken button. */
+table.gatas-table td.gatas-linkcell { white-space: nowrap; width: 1%; }
+.gatas-nolink { color: var(--GATAS-MUTED-color); }
+
+/* A formatted date is short enough to always fit on one line; wrapping it
+   after the comma just makes the rows taller. */
+table.gatas-table td.gatas-datecell { white-space: nowrap; }
+
 table.gatas-table td img.gatas-avatar {
   width: 3.2rem;
   height: 3.2rem;
