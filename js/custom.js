@@ -88,7 +88,7 @@
   /* -------------------------------------------------------------- lightbox */
 
   function setupLightbox() {
-    var galleries = document.querySelectorAll(".gatas-gallery");
+    var galleries = document.querySelectorAll(".gatas-gallery, .gatas-collage");
     if (!galleries.length || typeof HTMLDialogElement === "undefined") return;
 
     var dialog = document.createElement("dialog");

@@ -321,6 +321,82 @@ table.gatas-table td img.gatas-avatar {
   padding-top: 0.35rem;
 }
 
+/* --- photo collage --------------------------------------------------------- */
+
+/* A wall of photos rather than a row of thumbnails: four columns, tiles that
+   span two of them where the shortcode asks, and `dense` packing so the
+   leftover gaps fill themselves. The row height is fixed, which makes a plain
+   tile roughly square and a `wide` tile roughly 2:1 -- crop the photos
+   accordingly, per tile, with `crop` in front matter. */
+.gatas-collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 11rem;
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.gatas-collage figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.gatas-collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--gatas-crop-position, center);
+  display: block;
+  margin: 0;
+  cursor: zoom-in;
+  transition: transform 0.35s ease;
+}
+
+.gatas-collage figure:hover img,
+.gatas-collage figure:focus-within img { transform: scale(1.04); }
+
+/* The caption is decoration on top of the photo; the same text is in `alt`, so
+   nothing is lost when it is not showing, and a tap opens the lightbox where it
+   is always visible. */
+.gatas-collage figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem 0.6rem 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gatas-collage figure:hover figcaption,
+.gatas-collage figure:focus-within figcaption { opacity: 1; }
+
+.gatas-collage__tile--wide { grid-column: span 2; }
+.gatas-collage__tile--tall { grid-row: span 2; }
+.gatas-collage__tile--big { grid-column: span 2; grid-row: span 2; }
+
+@media screen and (max-width: 48rem) {
+  .gatas-collage {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 8rem;
+  }
+  /* Two columns leaves no room for a tile to be both wide and ordinary, so the
+     wide ones become full-width bands and the big one keeps its height. */
+  .gatas-collage__tile--wide,
+  .gatas-collage__tile--big { grid-column: span 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gatas-collage img { transition: none; }
+  .gatas-collage figure:hover img,
+  .gatas-collage figure:focus-within img { transform: none; }
+}
+
 dialog.gatas-lightbox {
   border: 0;
   padding: 0;
