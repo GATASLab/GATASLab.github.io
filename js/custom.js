@@ -1,6 +1,7 @@
-/* GATAS Lab — table sorting/filtering and the photo lightbox.
-   Both features are progressive enhancements: without JS the tables render
-   pre-sorted and the gallery images stay plain links to the full image. */
+/* GATAS Lab — table sorting/filtering, the photo lightbox, and the copy-link
+   button in the share row. All of it is progressive enhancement: without JS
+   the tables render pre-sorted, the gallery images stay plain links to the
+   full image, and the copy button never appears. */
 
 (function () {
   "use strict";
@@ -152,6 +153,25 @@
     });
   }
 
+  /* ---------------------------------------------------------- copy a link */
+
+  /* The share row's Bluesky and LinkedIn links work without JS; the copy
+     button cannot, so the template ships it hidden and it is revealed only
+     where the clipboard API is actually available. */
+  function setupCopyLinks() {
+    if (!navigator.clipboard) return;
+    Array.prototype.forEach.call(document.querySelectorAll(".gatas-share__copy"), function (button) {
+      button.hidden = false;
+      button.addEventListener("click", function () {
+        navigator.clipboard.writeText(button.getAttribute("data-url") || location.href).then(function () {
+          var original = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(function () { button.textContent = original; }, 1600);
+        });
+      });
+    });
+  }
+
   function init() {
     Array.prototype.forEach.call(document.querySelectorAll(".gatas-tablewrap"), function (wrap) {
       var table = wrap.querySelector("table.gatas-table");
@@ -161,6 +181,7 @@
     });
     setupLightbox();
     calmHeroVideos();
+    setupCopyLinks();
   }
 
   if (document.readyState === "loading") {

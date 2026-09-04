@@ -428,6 +428,42 @@ dialog.gatas-lightbox .gatas-lightbox__close {
   cursor: pointer;
 }
 
+/* --- share row ------------------------------------------------------------- */
+
+/* Sits at the foot of a news item. Deliberately quiet: this is a courtesy for
+   the reader who wants to pass the page on, not a call to action. */
+.gatas-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--GATAS-CARD-BORDER-color);
+  font-size: 0.85rem;
+}
+
+.gatas-share__label {
+  color: var(--GATAS-MUTED-color);
+  margin-right: 0.15rem;
+}
+
+.gatas-share a,
+.gatas-share__copy {
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  background: var(--GATAS-CARD-BG-color);
+  color: inherit;
+  font: inherit;
+  line-height: 1.6;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gatas-share a:hover,
+.gatas-share__copy:hover { border-color: var(--MAIN-LINK-color, currentColor); }
+
 /* --- misc ------------------------------------------------------------------ */
 
 .gatas-banner { margin: 0 0 1.5rem; }
