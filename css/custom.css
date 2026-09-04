@@ -1,0 +1,672 @@
+/* ---------------------------------------------------------------------------
+   GATAS Lab site components, layered on top of the Relearn theme.
+   Colors come from the theme variant files (theme-gatas-*.css).
+   --------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: JuliaMono-Regular;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2") format("woff2");
+}
+
+#R-body code,
+#R-body pre {
+  font-family: JuliaMono-Regular, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* --- card grid (home page, projects, sponsors) ---------------------------- */
+
+.gatas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.gatas-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 6px;
+  background: var(--GATAS-CARD-BG-color);
+  overflow: hidden;
+}
+
+.gatas-card__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 11rem;
+  padding: 1rem;
+  background: var(--MAIN-BG-color);
+  border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+.gatas-card__thumb img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+
+.gatas-card__body { padding: 0.9rem 1rem 1.1rem; }
+
+.gatas-card__body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.gatas-card__body p {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-card__body > :last-child { margin-bottom: 0; }
+
+/* --- media list (members, alumni, papers) --------------------------------- */
+
+.gatas-list { margin: 1.5rem 0; }
+
+.gatas-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+.gatas-item:last-child { border-bottom: 1px solid var(--GATAS-CARD-BORDER-color); }
+
+.gatas-item__thumb {
+  flex: 0 0 11rem;
+  max-width: 11rem;
+}
+
+.gatas-item__thumb img {
+  width: 100%;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.gatas-item__body { flex: 1 1 auto; min-width: 0; }
+
+.gatas-item__body h3 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+
+.gatas-item__meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-item__meta span + span::before { content: " · "; }
+
+@media screen and (max-width: 48rem) {
+  .gatas-item { flex-direction: column; }
+  .gatas-item__thumb { flex-basis: auto; max-width: 14rem; }
+}
+
+/* --- person header on member pages ---------------------------------------- */
+
+.gatas-person {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.gatas-person__photo { flex: 0 0 13rem; max-width: 13rem; }
+.gatas-person__photo img { width: 100%; border-radius: 6px; margin: 0; }
+.gatas-person__meta { flex: 1 1 auto; }
+
+/* Member facts, arranged by importance rather than as a uniform list: the role
+   leads, standing is a badge beside it, and the attributes are small pills. */
+.gatas-person__role {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.gatas-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  color: var(--GATAS-MUTED-color);
+}
+.gatas-badge--active { color: var(--GATAS-BOX-GREEN-color); }
+
+.gatas-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.9rem;
+}
+.gatas-fact {
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+  background: var(--GATAS-CARD-BG-color);
+}
+.gatas-fact dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--GATAS-MUTED-color);
+  margin: 0;
+}
+.gatas-fact dd {
+  display: block;
+  list-style: none;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+@media screen and (max-width: 48rem) {
+  .gatas-person { flex-direction: column; }
+}
+
+.gatas-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.gatas-btn {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--INTERNAL-MAIN-LINK-color);
+  border-radius: 4px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.gatas-btn:hover {
+  background: var(--INTERNAL-MAIN-LINK-color);
+  color: var(--MAIN-BG-color) !important;
+}
+
+/* --- data tables ----------------------------------------------------------- */
+
+.gatas-tablewrap { margin: 1.25rem 0; }
+
+.gatas-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.gatas-filter input,
+.gatas-filter select {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 4px;
+  background: var(--MAIN-BG-color);
+  color: var(--MAIN-TEXT-color);
+  font-size: 0.9rem;
+}
+
+.gatas-filter input { flex: 1 1 14rem; min-width: 10rem; }
+
+.gatas-scroll { overflow-x: auto; }
+
+table.gatas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+table.gatas-table th,
+table.gatas-table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+table.gatas-table thead th {
+  background: var(--GATAS-TABLE-HEAD-BG-color);
+  border-bottom: 2px solid var(--GATAS-CARD-BORDER-color);
+  white-space: nowrap;
+}
+
+table.gatas-table tbody tr:nth-child(even) { background: var(--GATAS-TABLE-STRIPE-BG-color); }
+table.gatas-table tbody tr:hover { background: var(--MENU-SECTIONS-ACTIVE-BG-color); }
+
+table.gatas-table th[data-sort] { cursor: pointer; user-select: none; }
+table.gatas-table th[data-sort]::after { content: " ⇅"; opacity: 0.35; font-size: 0.8em; }
+table.gatas-table th[data-sort][aria-sort="ascending"]::after { content: " ↑"; opacity: 1; }
+table.gatas-table th[data-sort][aria-sort="descending"]::after { content: " ↓"; opacity: 1; }
+
+table.gatas-table td img.gatas-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0;
+}
+
+.gatas-count { font-size: 0.85rem; color: var(--GATAS-MUTED-color); margin: 0.4rem 0 0; }
+
+/* --- bibliography ---------------------------------------------------------- */
+
+.gatas-bib { margin: 1rem 0 2rem; }
+
+/* Numbered references. A counter rather than the default marker, so the number
+   sits in its own right-aligned column and the entry forms a clean block beside
+   it -- including any annotation paragraphs, which indent with it. Wide enough
+   for three digits, since the talks list runs past a hundred. */
+.gatas-bib li {
+  counter-increment: bibitem;
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 3rem;
+  text-indent: 0;
+  list-style: none;
+}
+
+.gatas-bib ol { counter-reset: bibitem; padding-left: 0; margin-left: 0; }
+.gatas-bib ul { padding-left: 0; margin-left: 0; }
+.gatas-bib ol > li::before {
+  content: counter(bibitem) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.4rem;
+  text-align: right;
+  color: var(--GATAS-MUTED-color);
+  font-variant-numeric: tabular-nums;
+}
+.gatas-bib .bib-title { font-style: italic; }
+
+/* --- photo gallery + lightbox --------------------------------------------- */
+
+/* Thumbnails are cropped to a common shape so the grid stays even. The photos
+   mix portrait and landscape and the subject sits somewhere different in each,
+   so the framing point is per-image: the gallery shortcode writes an
+   object-position from the `crop` field in front matter, defaulting to centre.
+   The lightbox always shows the uncropped frame. */
+.gatas-gallery {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.gatas-gallery figure { margin: 0; }
+
+.gatas-gallery img {
+  width: 100%;
+  aspect-ratio: var(--gatas-crop-aspect, 4 / 3);
+  object-fit: cover;
+  object-position: var(--gatas-crop-position, center);
+  border-radius: 4px;
+  cursor: zoom-in;
+  margin: 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .gatas-gallery { grid-template-columns: 1fr !important; }
+}
+
+.gatas-gallery figcaption {
+  font-size: 0.85rem;
+  color: var(--GATAS-MUTED-color);
+  padding-top: 0.35rem;
+}
+
+dialog.gatas-lightbox {
+  border: 0;
+  padding: 0;
+  max-width: 96vw;
+  max-height: 96vh;
+  background: transparent;
+  color: #fff;
+}
+
+dialog.gatas-lightbox::backdrop { background: rgba(0, 0, 0, 0.86); }
+dialog.gatas-lightbox img { display: block; max-width: 96vw; max-height: 86vh; margin: 0 auto; }
+
+dialog.gatas-lightbox figcaption {
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.92rem;
+  color: #eee;
+}
+
+dialog.gatas-lightbox .gatas-lightbox__close {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* --- misc ------------------------------------------------------------------ */
+
+.gatas-banner { margin: 0 0 1.5rem; }
+.gatas-banner img { width: 100%; max-width: 46rem; margin: 0; }
+
+.gatas-sponsor-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/* Sponsor logos are bounded by the same box as a project's team headshots, so a
+   wide wordmark cannot out-weigh the faces above it. object-fit keeps the
+   aspect ratio inside that box rather than squashing it. */
+.gatas-sponsor-logos img {
+  max-height: 5.5rem;
+  max-width: 5.5rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+#R-body .gatas-embed {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 4px;
+}
+
+/* Both embeds scroll internally, so size them against the viewport rather than
+   pinning a pixel height that overflows on a phone. */
+#R-body .gatas-embed--map { height: min(25rem, 60vh); min-height: 15rem; }
+#R-body .gatas-embed--doc { height: 80vh; min-height: 24rem; }
+
+.gatas-embed-fallback {
+  margin: 0.4rem 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--GATAS-MUTED-color);
+}
+
+/* The theme hyphenates body text, which on a phone breaks headings
+   mid-word ("Accepting ap-plications for"). */
+#R-body h1, #R-body h2, #R-body h3, #R-body h4, #R-body h5 { hyphens: manual; }
+
+
+/* --- lab-portfolio adjustments ------------------------------------------- */
+
+/* Relearn targets a documentation reading measure; a portfolio wants room for
+   images. */
+:root { --MAIN-WIDTH-MAX: 96rem; }
+
+/* Headings sized up from the theme's dense reference scale, with more air. */
+#R-body h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
+#R-body h2 { font-size: 1.9rem; margin-top: 2.4rem; }
+#R-body h3 { font-size: 1.3rem; }
+#R-body article > p { line-height: 1.7; }
+
+/* A grid of faces reads as a lab; a stacked list reads as an index. */
+.gatas-grid--people { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+
+.gatas-grid--people .gatas-card__thumb {
+  height: 15rem;
+  padding: 0;
+  background: var(--GATAS-CARD-BG-color);
+}
+
+.gatas-grid--people .gatas-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.gatas-grid--people .gatas-card__body { padding: 0.75rem 0.9rem 0.9rem; }
+.gatas-grid--people .gatas-card__body h3 { font-size: 1.05rem; }
+.gatas-grid--people .gatas-item__meta { font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+.gatas-grid--software .gatas-card__body h3 {
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+.gatas-grid--software .gatas-links { margin-top: 0.6rem; }
+
+/* The figures on the software and project cards are the same figures, and were
+   drawn for a white page: axis labels, Graphviz node text and plot frames are
+   all black. Left on the theme's own background they vanish in dark mode, so
+   these thumbnails keep a white plate in both variants and read as figures
+   rather than as part of the card. */
+.gatas-grid--software .gatas-card__thumb,
+.gatas-grid--figures .gatas-card__thumb { background: #fff; }
+
+/* Fill the plate rather than only shrinking to fit it. Several of these
+   figures are SVGs that declare a physical intrinsic size -- Catlab's logo is
+   40mm by 28mm, about 151px -- and `max-height` alone leaves those stranded at
+   half the height of the plate while the rasters beside them fill it. Every
+   figure here is wider than the plate to begin with, so `contain` only ever
+   scales the vectors up and the rasters down. */
+.gatas-grid--software .gatas-card__thumb img,
+.gatas-grid--figures .gatas-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Stand-in for the packages that document themselves without a single figure.
+   It holds the row's rhythm without pretending to be a picture: the section's
+   own sidebar icon, greyed down far enough to read as an empty slot. */
+.gatas-card__thumb--empty {
+  color: var(--GATAS-CARD-BORDER-color);
+  font-size: 2.5rem;
+}
+
+/* Home page hero: the banner sits full width above the page title. */
+.gatas-hero { margin: 0 0 1.75rem; }
+
+/* !important because the theme's image render hook writes an inline
+   style="height:auto;width:auto", which otherwise wins and lets the banner
+   render at its natural 1779px and overflow the column. */
+.gatas-hero img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 6px;
+  margin: 0;
+}
+.gatas-hero__tagline {
+  margin: 0.9rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--GATAS-MUTED-color);
+}
+
+/* Project-page hero, set from `hero:` in front matter. The home page's banner
+   is a bar drawn to fill the column; these are documentation figures in
+   whatever shape their example produced, so the plate caps the height and
+   letterboxes instead of stretching or cropping -- a legend or an axis label
+   sliced off the edge is worse than a margin of white. White for the same
+   reason the software thumbnails are white: black axis text on the dark
+   theme's background is unreadable. The caption sits outside the plate, on the
+   page background, so it stays legible in both variants. */
+.gatas-hero--page { margin: 0 0 1.75rem; }
+
+.gatas-hero__plate {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-radius: 6px;
+}
+
+.gatas-hero--page img,
+.gatas-hero--page video {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 20rem;
+  border-radius: 0;
+  margin: 0;
+}
+
+.gatas-hero--page figcaption {
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--GATAS-MUTED-color);
+}
+
+/* Annotations on bibliography and project entries. Set slightly narrower than
+   the surrounding text so a run of them reads as commentary, not body copy. */
+.gatas-annotation {
+  margin: 0.4rem 0 0;
+  max-width: 46rem;
+  font-size: 0.94rem;
+  color: var(--MAIN-TEXT-color);
+  border-left: 2px solid var(--GATAS-BOX-NOTE-color, currentColor);
+  padding-left: 0.75rem;
+  opacity: 0.88;
+}
+
+/* "Read it for" is guidance for our own students rather than part of the
+   citable annotation, so it is set apart from the paragraph above it. */
+.gatas-annotation--guide { font-size: 0.88rem; opacity: 0.8; }
+.gatas-annotation--guide span {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+.gatas-annotation p { display: inline; margin: 0; }
+
+/* Chips: structured data on a card rendered as small controls. A chip that
+   links somewhere looks clickable; one that does not is flat, so a name without
+   a member page does not read as a broken link. */
+.gatas-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 0.6rem; }
+.gatas-chip {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--MAIN-LINK-color, currentColor);
+  opacity: 0.55;
+  white-space: nowrap;
+}
+.gatas-chip--link {
+  opacity: 1;
+  text-decoration: none;
+  background: transparent;
+}
+.gatas-chip--link:hover, .gatas-chip--link:focus-visible {
+  background: var(--MAIN-LINK-color);
+  color: var(--MAIN-BG-color);
+}
+
+/* Compact cards: a name, a line of context and one button. Narrower than the
+   people cards, which carry a photo. */
+.gatas-grid--compact { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+.gatas-card--compact .gatas-card__body h3 { font-size: 1rem; margin-bottom: 0.15rem; }
+.gatas-card--compact .gatas-card__body p { font-size: 0.88rem; }
+
+/* Team chips sit directly under a heading, so they need a little more room
+   above than the chips inside a card. */
+.gatas-chips--team { margin: 0.2rem 0 1.2rem; gap: 0.4rem; }
+.gatas-chips--team .gatas-chip { font-size: 0.85rem; padding: 0.2rem 0.65rem; }
+
+/* Project team: a row of linked headshots. Faces identify a team faster than
+   names, and every photo is a link to that person's page. */
+.gatas-team {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0.4rem 0 1.4rem;
+}
+.gatas-team li { margin: 0; }
+.gatas-team a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 6.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+.gatas-team img, .gatas-team__initials {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.gatas-team__initials {
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  background: var(--GATAS-CARD-BG-color);
+  color: var(--GATAS-MUTED-color);
+}
+.gatas-team a:hover img, .gatas-team a:focus-visible img,
+.gatas-team a:hover .gatas-team__initials { border-color: var(--MAIN-LINK-color); }
+.gatas-team__name {
+  font-size: 0.82rem;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+.gatas-team a:hover .gatas-team__name { color: var(--MAIN-LINK-color); }
+
+/* --- news list ------------------------------------------------------------ */
+
+/* Only some news items have a photo. With the thumbnail on the left, those rows
+   indent their headline by the width of the image and the rest start at the
+   margin, so nothing lines up down the page; reserving an empty column instead
+   leaves a 14rem hole beside every text-only item. Putting the photo on the
+   right keeps every date and headline on the same left edge and lets the
+   photoless items simply run wider. */
+.gatas-list--news .gatas-item { flex-direction: row-reverse; }
+
+/* News photos are wide event shots, not portraits or logos, so the thumbnail is
+   a fixed 4:3 crop rather than a contained image: a 3:2 award photo and a 4:3
+   commencement photo would otherwise set different row heights. */
+.gatas-list--news .gatas-item__thumb { flex-basis: 14rem; max-width: 14rem; }
+
+.gatas-list--news .gatas-item__thumb img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The date leads the entry, so it sits above the headline rather than under it
+   the way person metadata does. */
+.gatas-list--news .gatas-item__meta {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Below the two-column threshold the photo stacks above the entry. The
+   direction has to be restated here: the row-reverse rule above is two classes
+   to the base list's one, and a media query adds no specificity, so without
+   this the row survives on a phone -- and the thumbnail, which keeps
+   `flex-shrink: 0` from the base, then holds the source image's full width and
+   pushes the headline off the screen.
+
+   The 24rem cap is what keeps the stacked photo in proportion. This breakpoint
+   runs all the way to 48rem, and an uncapped 4:3 photo at that width would be
+   576px tall -- a hero image on top of a two-line news entry. On a phone the
+   column is narrower than the cap, so the photo still runs edge to edge. */
+@media screen and (max-width: 48rem) {
+  .gatas-list--news .gatas-item { flex-direction: column; }
+  .gatas-list--news .gatas-item__thumb { flex: 0 0 auto; max-width: min(100%, 24rem); }
+}

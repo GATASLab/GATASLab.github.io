@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Decapodes, drawn for this site in the house style shared by these package
+  marks: Julia's palette, one glyph per node, no words.
+
+  The picture is a decapode, which is what the package is for. Each node is a
+  variable and each edge is an operator of the discrete exterior calculus, so
+  this one reads as the diffusion equation: phi is d of C, C-dot is the
+  codifferential of phi, and C-dot is the time derivative of C. Three nodes and
+  three edges is the smallest drawing that is still a real one.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560" role="img" aria-label="A decapode: three variables joined by the exterior derivative, the codifferential and the time derivative">
+  <defs>
+    <marker id="a4063D8" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4063D8"/></marker>
+  </defs>
+  <path d="M 324.0,190.0 L 588.0,190.0" fill="none" stroke="#4063D8" stroke-width="6" stroke-linecap="round" marker-end="url(#a4063D8)"/>
+  <text x="460.0" y="168.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-style="italic" font-weight="normal" fill="#4063D8">d</text>
+  <path d="M 624.6,256.7 L 528.9,357.5" fill="none" stroke="#4063D8" stroke-width="6" stroke-linecap="round" marker-end="url(#a4063D8)"/>
+  <text x="628.0" y="344.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="normal" font-weight="normal" fill="#4063D8">&#8902;d&#8902;</text>
+  <path d="M 396.6,363.3 L 300.9,262.5" fill="none" stroke="#4063D8" stroke-width="6" stroke-linecap="round" marker-end="url(#a4063D8)"/>
+  <text x="276.0" y="344.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-style="italic" font-weight="normal" fill="#4063D8">&#8706;<tspan font-size='28'>t</tspan></text>
+  <circle cx="232.0" cy="190.0" r="86" fill="#EDBDBA" stroke="#CB3C33" stroke-width="6"/>
+  <text x="232.0" y="215.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-style="italic" font-weight="normal" fill="#CB3C33">C</text>
+  <circle cx="688.0" cy="190.0" r="86" fill="#BBDCB5" stroke="#389826" stroke-width="6"/>
+  <text x="688.0" y="215.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-style="italic" font-weight="normal" fill="#389826">&#966;</text>
+  <circle cx="460.0" cy="430.0" r="86" fill="#DBC6E5" stroke="#9558B2" stroke-width="6"/>
+  <text x="460.0" y="455.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-style="italic" font-weight="normal" fill="#9558B2">&#266;</text>
+</svg>

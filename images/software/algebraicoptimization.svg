@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AlgebraicOptimization, drawn for this site in the house style shared by these
+  package marks: Julia's palette, one glyph per node, no words.
+
+  An undirected wiring diagram, which is how the package states a composite
+  problem. Each box is a local objective; the blue junctions are the variables
+  two boxes share; the wires running to the outer boundary are the ports the
+  composite still exposes. Minimising the whole is minimising the sum, and the
+  diagram is what says which arguments are held in common.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 580" width="940" height="580" role="img" aria-label="An undirected wiring diagram: three objective boxes wired to shared junctions, with two outer ports">
+  <defs>
+
+  </defs>
+  <rect x="60" y="70" width="820" height="420" rx="34" fill="none" stroke="#1b1b1f" stroke-width="6"/>
+  <path d="M 332.0,190.0 L 470.0,190.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 332.0,400.0 L 470.0,400.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 470.0,190.0 L 585.0,190.0 L 585.0,250.0 L 618.0,250.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 470.0,400.0 L 585.0,400.0 L 585.0,340.0 L 618.0,340.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 60.0,190.0 L 168.0,190.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 60.0,400.0 L 168.0,400.0" fill="none" stroke="#1b1b1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="166.0" y="131.0" width="168" height="118" rx="14" fill="#EDBDBA" stroke="#CB3C33" stroke-width="6"/>
+  <text x="250.0" y="211.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-style="italic" font-weight="normal" fill="#CB3C33">f</text>
+  <rect x="166.0" y="341.0" width="168" height="118" rx="14" fill="#BBDCB5" stroke="#389826" stroke-width="6"/>
+  <text x="250.0" y="421.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-style="italic" font-weight="normal" fill="#389826">g</text>
+  <rect x="616.0" y="236.0" width="168" height="118" rx="14" fill="#DBC6E5" stroke="#9558B2" stroke-width="6"/>
+  <text x="700.0" y="316.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-style="italic" font-weight="normal" fill="#9558B2">h</text>
+  <circle cx="470.0" cy="190.0" r="17" fill="#4063D8"/>
+  <circle cx="470.0" cy="400.0" r="17" fill="#4063D8"/>
+  <text x="470.0" y="534.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-style="italic" font-weight="normal" fill="#4063D8">min &#8202; f + g + h</text>
+</svg>

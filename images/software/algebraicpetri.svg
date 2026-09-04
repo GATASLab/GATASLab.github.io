@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AlgebraicPetri, drawn for this site in the house style shared by these package
+  marks: Julia's palette, one glyph per node, no words.
+
+  A Petri net in its own notation, which is the point of the package: circles
+  are species, squares are transitions, arcs say what each transition consumes
+  and produces. This one is SIR, the smallest epidemic model anybody writes, and
+  the arc looping back from I into the infection transition is the part that
+  makes it non-linear.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 430" width="1020" height="430" role="img" aria-label="An S I R Petri net: three species as circles, two transitions as squares, with infection drawing on the infected population">
+  <defs>
+    <marker id="a1b1b1f" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1b1b1f"/></marker>
+  </defs>
+  <path d="M 230.0,258.0 L 263.0,258.0" fill="none" stroke="#1b1b1f" stroke-width="6" stroke-linecap="round" marker-end="url(#a1b1b1f)"/>
+  <path d="M 387.0,258.0 L 420.0,258.0" fill="none" stroke="#1b1b1f" stroke-width="6" stroke-linecap="round" marker-end="url(#a1b1b1f)"/>
+  <path d="M 600.0,258.0 L 633.0,258.0" fill="none" stroke="#1b1b1f" stroke-width="6" stroke-linecap="round" marker-end="url(#a1b1b1f)"/>
+  <path d="M 757.0,258.0 L 790.0,258.0" fill="none" stroke="#1b1b1f" stroke-width="6" stroke-linecap="round" marker-end="url(#a1b1b1f)"/>
+  <path d="M 510.0,174.0 L 510.0,104.0 L 325.0,104.0 L 325.0,198.0" fill="none" stroke="#1b1b1f" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a1b1b1f)"/>
+  <rect x="269.0" y="202.0" width="112" height="112" rx="12" fill="#DBC6E5" stroke="#9558B2" stroke-width="6"/>
+  <rect x="639.0" y="202.0" width="112" height="112" rx="12" fill="#DBC6E5" stroke="#9558B2" stroke-width="6"/>
+  <circle cx="140.0" cy="258.0" r="84" fill="#BECAF2" stroke="#4063D8" stroke-width="6"/>
+  <text x="140.0" y="281.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-style="italic" font-weight="normal" fill="#4063D8">S</text>
+  <circle cx="510.0" cy="258.0" r="84" fill="#EDBDBA" stroke="#CB3C33" stroke-width="6"/>
+  <text x="510.0" y="281.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-style="italic" font-weight="normal" fill="#CB3C33">I</text>
+  <circle cx="880.0" cy="258.0" r="84" fill="#BBDCB5" stroke="#389826" stroke-width="6"/>
+  <text x="880.0" y="281.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-style="italic" font-weight="normal" fill="#389826">R</text>
+</svg>

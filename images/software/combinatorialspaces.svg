@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The discrete de Rham complex, drawn on one triangulated patch: a value on
+  every vertex, then on every edge, then on every face, with d carrying each
+  to the next. The sizes, widths and opacities encode one fixed arbitrary
+  field per dimension, so the picture reads as data on the cells rather than
+  as a bare mesh. Drawn for this site; the colours are Julia's palette.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 944 300" width="944" height="300" role="img" aria-label="The discrete de Rham complex on a triangulated patch: a value on every vertex, then on every directed edge, then on every face">
+  <defs>
+    <marker id="ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#389826"/>
+    </marker>
+    <marker id="ahk" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1b1b1f"/>
+    </marker>
+  </defs>
+  <line x1="152.0" y1="182.0" x2="152.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="182.0" x2="217.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="182.0" x2="217.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="182.0" x2="152.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="182.0" x2="86.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="182.0" x2="86.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="106.0" x2="217.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="217.8" y1="144.0" x2="217.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="217.8" y1="220.0" x2="152.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="152.0" y1="258.0" x2="86.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="86.2" y1="220.0" x2="86.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="86.2" y1="144.0" x2="152.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <circle cx="152.0" cy="182.0" r="14.0" fill="#4063D8"/>
+  <circle cx="152.0" cy="106.0" r="9.1" fill="#4063D8"/>
+  <circle cx="217.8" cy="144.0" r="11.6" fill="#4063D8"/>
+  <circle cx="217.8" cy="220.0" r="8.1" fill="#4063D8"/>
+  <circle cx="152.0" cy="258.0" r="12.8" fill="#4063D8"/>
+  <circle cx="86.2" cy="220.0" r="10.2" fill="#4063D8"/>
+  <circle cx="86.2" cy="144.0" r="11.1" fill="#4063D8"/>
+  <line x1="472.0" y1="182.0" x2="472.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="182.0" x2="537.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="182.0" x2="537.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="182.0" x2="472.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="182.0" x2="406.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="182.0" x2="406.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="106.0" x2="537.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="537.8" y1="144.0" x2="537.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="537.8" y1="220.0" x2="472.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="258.0" x2="406.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="406.2" y1="220.0" x2="406.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="406.2" y1="144.0" x2="472.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="472.0" y1="173.0" x2="472.0" y2="121.0" stroke="#389826" stroke-width="5.5" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="479.8" y1="177.5" x2="524.8" y2="151.5" stroke="#389826" stroke-width="3.8" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="530.0" y1="215.5" x2="485.0" y2="189.5" stroke="#389826" stroke-width="4.7" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="472.0" y1="191.0" x2="472.0" y2="243.0" stroke="#389826" stroke-width="5.8" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="464.2" y1="186.5" x2="419.2" y2="212.5" stroke="#389826" stroke-width="4.1" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="414.0" y1="148.5" x2="459.0" y2="174.5" stroke="#389826" stroke-width="5.0" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="479.8" y1="110.5" x2="524.8" y2="136.5" stroke="#389826" stroke-width="4.5" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="537.8" y1="153.0" x2="537.8" y2="205.0" stroke="#389826" stroke-width="5.6" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="479.8" y1="253.5" x2="524.8" y2="227.5" stroke="#389826" stroke-width="3.7" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="464.2" y1="253.5" x2="419.2" y2="227.5" stroke="#389826" stroke-width="4.8" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="406.2" y1="211.0" x2="406.2" y2="159.0" stroke="#389826" stroke-width="5.7" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <line x1="464.2" y1="110.5" x2="419.2" y2="136.5" stroke="#389826" stroke-width="4.0" stroke-linecap="round" marker-end="url(#ahg)"/>
+  <circle cx="472.0" cy="182.0" r="4" fill="#1b1b1f"/>
+  <circle cx="472.0" cy="106.0" r="4" fill="#1b1b1f"/>
+  <circle cx="537.8" cy="144.0" r="4" fill="#1b1b1f"/>
+  <circle cx="537.8" cy="220.0" r="4" fill="#1b1b1f"/>
+  <circle cx="472.0" cy="258.0" r="4" fill="#1b1b1f"/>
+  <circle cx="406.2" cy="220.0" r="4" fill="#1b1b1f"/>
+  <circle cx="406.2" cy="144.0" r="4" fill="#1b1b1f"/>
+  <line x1="792.0" y1="182.0" x2="792.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="182.0" x2="857.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="182.0" x2="857.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="182.0" x2="792.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="182.0" x2="726.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="182.0" x2="726.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="106.0" x2="857.8" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="857.8" y1="144.0" x2="857.8" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="857.8" y1="220.0" x2="792.0" y2="258.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="792.0" y1="258.0" x2="726.2" y2="220.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="726.2" y1="220.0" x2="726.2" y2="144.0" stroke="#c6c6cf" stroke-width="3"/>
+  <line x1="726.2" y1="144.0" x2="792.0" y2="106.0" stroke="#c6c6cf" stroke-width="3"/>
+  <polygon points="792.0,182.0 792.0,106.0 857.8,144.0" fill="#CB3C33" fill-opacity="0.52"/>
+  <polygon points="792.0,182.0 857.8,144.0 857.8,220.0" fill="#CB3C33" fill-opacity="0.29"/>
+  <polygon points="792.0,182.0 857.8,220.0 792.0,258.0" fill="#CB3C33" fill-opacity="0.64"/>
+  <polygon points="792.0,182.0 792.0,258.0 726.2,220.0" fill="#CB3C33" fill-opacity="0.38"/>
+  <polygon points="792.0,182.0 726.2,220.0 726.2,144.0" fill="#CB3C33" fill-opacity="0.73"/>
+  <polygon points="792.0,182.0 726.2,144.0 792.0,106.0" fill="#CB3C33" fill-opacity="0.45"/>
+  <line x1="792.0" y1="182.0" x2="792.0" y2="106.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="182.0" x2="857.8" y2="144.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="182.0" x2="857.8" y2="220.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="182.0" x2="792.0" y2="258.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="182.0" x2="726.2" y2="220.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="182.0" x2="726.2" y2="144.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="106.0" x2="857.8" y2="144.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="857.8" y1="144.0" x2="857.8" y2="220.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="857.8" y1="220.0" x2="792.0" y2="258.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="792.0" y1="258.0" x2="726.2" y2="220.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="726.2" y1="220.0" x2="726.2" y2="144.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <line x1="726.2" y1="144.0" x2="792.0" y2="106.0" stroke="#CB3C33" stroke-width="2.6" stroke-opacity="0.85"/>
+  <text x="152.0" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#4063D8">&#937;&#8304;</text>
+  <text x="472.0" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#389826">&#937;&#185;</text>
+  <text x="792.0" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#CB3C33">&#937;&#178;</text>
+  <line x1="248.0" y1="182.0" x2="376.0" y2="182.0" stroke="#1b1b1f" stroke-width="3.5" marker-end="url(#ahk)"/>
+  <text x="312.0" y="166.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="36" fill="#1b1b1f">d</text>
+  <line x1="568.0" y1="182.0" x2="696.0" y2="182.0" stroke="#1b1b1f" stroke-width="3.5" marker-end="url(#ahk)"/>
+  <text x="632.0" y="166.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="36" fill="#1b1b1f">d</text>
+</svg>

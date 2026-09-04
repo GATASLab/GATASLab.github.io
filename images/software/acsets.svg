@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ACSets.jl mark: four objects and the four morphisms of a commutative square.
+
+  Traced from a raster of the mark rather than copied, so it is resolution
+  independent. The construction is exactly regular, which is what made the
+  trace possible: the four rings sit on a circle of radius 219.2 about the
+  centre at 90 degree spacing, rotated by minus 16.5 degrees; each ring has
+  radius 106 under a 27 wide stroke; each dot sits 109.7 from its own ring's
+  centre in the direction of the ring it connects to, with radius 35; and each
+  arc is a circular arc of radius 117.9 bowing away from the centre. Colours
+  are Julia's own palette, which the raster samples to within 3 of 255.
+
+  The draw order is not flat. Purple passes under the top ring while its other
+  end, and all six remaining ends, sit on top: one crossing, which makes the
+  cycle read as a weave rather than as four separate arrows. Reordering these
+  elements loses that.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700" role="img" aria-label="Four rings joined in a cycle by four coloured arrows">
+  <circle cx="139.83" cy="412.26" r="106.0" fill="none" stroke="#000000" stroke-width="27.0"/>
+  <g fill="#9558B2">
+    <path d="M 108.67,307.07 A 117.9 117.9 0 0 1 182.56,170.98" fill="none" stroke="#9558B2" stroke-width="22.0" stroke-linecap="round"/>
+    <circle cx="108.67" cy="307.07" r="35.0"/>
+    <circle cx="182.56" cy="170.98" r="35.0"/>
+  </g>
+  <circle cx="287.74" cy="139.83" r="106.0" fill="none" stroke="#000000" stroke-width="27.0"/>
+  <circle cx="560.17" cy="287.74" r="106.0" fill="none" stroke="#000000" stroke-width="27.0"/>
+  <circle cx="412.26" cy="560.17" r="106.0" fill="none" stroke="#000000" stroke-width="27.0"/>
+  <g fill="#CB3C33">
+    <path d="M 392.93,108.67 A 117.9 117.9 0 0 1 529.02,182.56" fill="none" stroke="#CB3C33" stroke-width="22.0" stroke-linecap="round"/>
+    <circle cx="392.93" cy="108.67" r="35.0"/>
+    <circle cx="529.02" cy="182.56" r="35.0"/>
+  </g>
+  <g fill="#389826">
+    <path d="M 591.33,392.93 A 117.9 117.9 0 0 1 517.44,529.02" fill="none" stroke="#389826" stroke-width="22.0" stroke-linecap="round"/>
+    <circle cx="591.33" cy="392.93" r="35.0"/>
+    <circle cx="517.44" cy="529.02" r="35.0"/>
+  </g>
+  <g fill="#4063D8">
+    <path d="M 307.07,591.33 A 117.9 117.9 0 0 1 170.98,517.44" fill="none" stroke="#4063D8" stroke-width="22.0" stroke-linecap="round"/>
+    <circle cx="307.07" cy="591.33" r="35.0"/>
+    <circle cx="170.98" cy="517.44" r="35.0"/>
+  </g>
+</svg>
