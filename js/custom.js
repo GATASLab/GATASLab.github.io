@@ -1,7 +1,8 @@
-/* GATAS Lab — table sorting/filtering, the photo lightbox, and the copy-link
-   button in the share row. All of it is progressive enhancement: without JS
-   the tables render pre-sorted, the gallery images stay plain links to the
-   full image, and the copy button never appears. */
+/* GATAS Lab — table sorting/filtering, the photo lightbox, the hero video's
+   pause control, and the copy-link button in the share row. All of it is
+   progressive enhancement: without JS the tables render pre-sorted, a gallery
+   photo is a plain link to the full-size image, the hero video keeps the native
+   controls the template gives it, and the copy button never appears. */
 
 (function () {
   "use strict";
@@ -24,13 +25,35 @@
     return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
   }
 
+  /* A header's position among the *sortable* headers is not its position in the
+     row. `bibtable` lets `columns` put the unsortable link column anywhere, and
+     `datatable` appends one, so the two indices only coincide while every
+     unsortable column happens to sit last. Ask the row where the cell actually
+     is. */
+  function columnIndex(th) {
+    return Array.prototype.indexOf.call(th.parentNode.cells, th);
+  }
+
   function setupSorting(table) {
     var headers = table.querySelectorAll("thead th[data-sort]");
-    Array.prototype.forEach.call(headers, function (th, index) {
-      th.setAttribute("tabindex", "0");
-      th.setAttribute("role", "button");
-      var sort = function () {
+    Array.prototype.forEach.call(headers, function (th) {
+      var index = columnIndex(th);
+      if (index < 0) return;
+
+      /* The `th` keeps its native columnheader role -- that is what tells a
+         screen reader which column each cell belongs to, and `aria-sort` is
+         only meaningful on it. Putting role="button" on the `th` replaced that
+         role and threw both away, so the control is a real button inside the
+         header instead. It also brings keyboard support with it. */
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "gatas-sort";
+      while (th.firstChild) button.appendChild(th.firstChild);
+      th.appendChild(button);
+
+      button.addEventListener("click", function () {
         var body = table.tBodies[0];
+        if (!body) return;
         var rows = Array.prototype.slice.call(body.rows);
         var descending = th.getAttribute("aria-sort") !== "descending";
         Array.prototype.forEach.call(headers, function (other) {
@@ -42,13 +65,6 @@
           return descending ? -result : result;
         });
         rows.forEach(function (row) { body.appendChild(row); });
-      };
-      th.addEventListener("click", sort);
-      th.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          sort();
-        }
       });
     });
   }
@@ -88,6 +104,13 @@
 
   /* -------------------------------------------------------------- lightbox */
 
+  /* The gallery and collage shortcodes wrap every thumbnail in an anchor whose
+     href is the full-size rendition. That anchor is the whole accessibility
+     story here: it is focusable and activates from the keyboard for free, it
+     makes the `:focus-within` rules in custom.css reachable, and with JS off it
+     still does something useful -- it opens the photo. The lightbox is the
+     enhancement on top, and it reads the full-size URL from the href rather
+     than enlarging the cropped thumbnail. */
   function setupLightbox() {
     var galleries = document.querySelectorAll(".gatas-gallery, .gatas-collage");
     if (!galleries.length || typeof HTMLDialogElement === "undefined") return;
@@ -103,21 +126,25 @@
     var caption = dialog.querySelector("figcaption");
     var current = [];
     var position = 0;
+    var opener = null;
 
     function show(index) {
       position = (index + current.length) % current.length;
-      var source = current[position];
-      image.src = source.getAttribute("data-full") || source.src;
-      image.alt = source.alt || "";
-      caption.textContent = source.getAttribute("data-caption") || source.alt || "";
+      var link = current[position];
+      var thumb = link.querySelector("img");
+      image.src = link.getAttribute("href");
+      image.alt = (thumb && thumb.alt) || "";
+      caption.textContent =
+        link.getAttribute("data-caption") || (thumb && thumb.alt) || "";
     }
 
     Array.prototype.forEach.call(galleries, function (gallery) {
-      var images = Array.prototype.slice.call(gallery.querySelectorAll("img"));
-      images.forEach(function (img, index) {
-        img.addEventListener("click", function (event) {
+      var links = Array.prototype.slice.call(gallery.querySelectorAll("a[data-lightbox]"));
+      links.forEach(function (link, index) {
+        link.addEventListener("click", function (event) {
           event.preventDefault();
-          current = images;
+          current = links;
+          opener = link;
           show(index);
           dialog.showModal();
         });
@@ -130,6 +157,11 @@
     dialog.addEventListener("click", function (event) {
       if (event.target === dialog) dialog.close();
     });
+    /* Send focus back to the photo that opened it, so a keyboard user does not
+       land at the top of the document on every close. */
+    dialog.addEventListener("close", function () {
+      if (opener) opener.focus();
+    });
     document.addEventListener("keydown", function (event) {
       if (!dialog.open || current.length < 2) return;
       if (event.key === "ArrowRight") show(position + 1);
@@ -140,16 +172,55 @@
   /* ------------------------------------------------------------ hero video */
 
   /* A hero video autoplays, because a paused simulation is a still frame with
-     no play button on it. `autoplay` is not something CSS can revoke, so
-     honour a reduced-motion preference here instead: hold the poster, and let
-     the reader start it themselves if they want to. */
-  function calmHeroVideos() {
-    if (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    Array.prototype.forEach.call(document.querySelectorAll(".gatas-hero__video"), function (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.controls = true;
-      video.pause();
+     no play button on it. It also loops indefinitely, and WCAG 2.2.2 asks for a
+     way to stop anything that moves for more than five seconds -- the
+     Decapodes hero runs 16.7s a lap -- so a pause control is not optional.
+
+     The template ships the video with native `controls`, which covers the
+     requirement when this file does not load. Where it does load we take those
+     away and put one small button in the corner of the plate instead: less
+     furniture over the picture, still a real focusable button. A reduced-motion
+     preference additionally holds the poster instead of playing. */
+  function setupHeroVideos() {
+    var videos = document.querySelectorAll(".gatas-hero__video");
+    if (!videos.length) return;
+
+    var calm = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    Array.prototype.forEach.call(videos, function (video) {
+      video.controls = false;
+
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "gatas-hero__toggle";
+
+      function render() {
+        var label = video.paused ? "Play" : "Pause";
+        button.textContent = label;
+        button.setAttribute("aria-label", label + " the background video");
+      }
+
+      button.addEventListener("click", function () {
+        if (video.paused) {
+          var started = video.play();
+          if (started && started.catch) started.catch(function () {});
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("play", render);
+      video.addEventListener("pause", render);
+
+      if (calm) {
+        video.autoplay = false;
+        video.loop = false;
+        video.pause();
+      }
+
+      render();
+      (video.parentNode || video).appendChild(button);
     });
   }
 
@@ -180,7 +251,7 @@
       setupFiltering(wrap, table);
     });
     setupLightbox();
-    calmHeroVideos();
+    setupHeroVideos();
     setupCopyLinks();
   }
 

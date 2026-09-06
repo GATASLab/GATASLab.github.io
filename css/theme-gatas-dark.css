@@ -1,0 +1,67 @@
+:root {
+  /* gatas-dark — UF cool grey 11 canvas, GATAS green accents */
+  --PRIMARY-color: rgba( 130, 199, 100, 1 );
+  --PRIMARY-HOVER-color: rgba( 156, 219, 128, 1 );
+  --SECONDARY-color: rgba( 117, 170, 219, 1 );
+  --SECONDARY-HOVER-color: rgba( 155, 197, 236, 1 );
+  --ACCENT-color: rgba( 250, 110, 70, 1 );
+  --ACCENT-HOVER-color: rgba( 255, 144, 110, 1 );
+
+  --MENU-HEADER-BG-color: rgba( 38, 41, 49, 1 );
+  --MENU-HEADER-BORDER-color: rgba( 70, 74, 86, 1 );
+  --MENU-HEADER-color: rgba( 235, 235, 235, 1 );
+  --MENU-HOME-LINK-color: rgba( 220, 220, 220, 1 );
+  --MENU-HOME-LINK-HOVER-color: rgba( 255, 255, 255, 1 );
+  --MENU-SEARCH-color: rgba( 224, 224, 224, 1 );
+  --MENU-SEARCH-BG-color: rgba( 30, 32, 38, 1 );
+  --MENU-SEARCH-BORDER-color: rgba( 110, 114, 126, 1 );
+  --MENU-SECTIONS-BG-color: rgba( 44, 47, 56, 1 );
+  --MENU-SECTIONS-ACTIVE-BG-color: rgba( 52, 55, 65, 1 );
+  --MENU-SECTIONS-LINK-color: rgba( 196, 198, 204, 1 );
+  --MENU-SECTIONS-LINK-HOVER-color: rgba( 255, 255, 255, 1 );
+  --MENU-SECTION-ACTIVE-CATEGORY-color: rgba( 130, 199, 100, 1 );
+  --MENU-SECTION-ACTIVE-CATEGORY-BG-color: rgba( 52, 55, 65, 1 );
+  --MENU-SECTION-SEPARATOR-color: rgba( 88, 92, 104, 1 );
+  --MENU-VISITED-color: rgba( 117, 170, 219, 1 );
+
+  --MAIN-BG-color: rgba( 52, 55, 65, 1 );            /* UF cool grey 11 */
+  --MAIN-TEXT-color: rgba( 222, 223, 226, 1 );
+  --MAIN-TITLES-TEXT-color: rgba( 255, 255, 255, 1 );
+  --MAIN-TITLES-H1-TEXT-color: rgba( 255, 255, 255, 1 );
+
+  --CODE-theme: relearn-dark;
+  --CODE-BLOCK-color: rgba( 248, 248, 242, 1 );
+  --CODE-BLOCK-BG-color: rgba( 40, 43, 51, 1 );
+  --CODE-BLOCK-BORDER-color: rgba( 78, 82, 94, 1 );
+  --CODE-INLINE-color: rgba( 150, 219, 120, 1 );
+  --CODE-INLINE-BG-color: rgba( 44, 47, 56, 1 );
+  --CODE-INLINE-BORDER-color: rgba( 78, 82, 94, 1 );
+
+  --BROWSER-theme: dark;
+  --MERMAID-theme: dark;
+  --OPENAPI-theme: dark;
+  --OPENAPI-CODE-theme: obsidian;
+
+  --BOX-CAPTION-color: rgba( 240, 240, 240, 1 );
+  --BOX-BG-color: rgba( 34, 36, 43, 1 );
+  --BOX-TEXT-color: rgba( 224, 224, 224, 1 );
+
+  /* Notice/box colour ramp, lightened for the dark canvas. See the light
+     variant for what each one drives. */
+  --GATAS-BOX-GREEN-color: rgba( 130, 199, 100, 1 );
+  --GATAS-BOX-BLUE-color: rgba( 117, 170, 219, 1 );
+  --GATAS-BOX-ORANGE-color: rgba( 236, 160, 74, 1 );
+  --GATAS-BOX-RED-color: rgba( 226, 96, 78, 1 );
+  --GATAS-BOX-CYAN-color: rgba( 92, 182, 192, 1 );
+  --GATAS-BOX-MAGENTA-color: rgba( 199, 116, 178, 1 );
+  --GATAS-BOX-GREY-color: rgba( 152, 154, 162, 1 );
+
+  --GATAS-CARD-BORDER-color: rgba( 78, 82, 94, 1 );
+  --GATAS-CARD-BG-color: rgba( 44, 47, 56, 1 );
+  --GATAS-TABLE-HEAD-BG-color: rgba( 44, 47, 56, 1 );
+  --GATAS-TABLE-STRIPE-BG-color: rgba( 47, 50, 59, 1 );
+  --GATAS-MUTED-color: rgba( 168, 170, 176, 1 );
+  /* Section band: a shade off the page, distinct from the card background so a
+     grid of cards sitting inside a band still separates from it. */
+  --GATAS-BAND-BG-color: rgba( 37, 40, 48, 1 );
+}

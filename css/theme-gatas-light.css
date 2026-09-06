@@ -1,0 +1,68 @@
+:root {
+  /* gatas-light — UF warm grey sidebar, GATAS green accents, blue links */
+  --PRIMARY-color: rgba( 111, 180, 80, 1 );          /* GATAS green */
+  --PRIMARY-HOVER-color: rgba( 88, 148, 61, 1 );
+  --SECONDARY-color: rgba( 62, 116, 163, 1 );        /* link blue */
+  --SECONDARY-HOVER-color: rgba( 41, 82, 119, 1 );
+  --ACCENT-color: rgba( 250, 70, 22, 1 );            /* UF orange, search highlights */
+  --ACCENT-HOVER-color: rgba( 214, 56, 14, 1 );
+
+  --MENU-HEADER-BG-color: rgba( 216, 212, 215, 1 );  /* UF warm grey 1 */
+  --MENU-HEADER-BORDER-color: rgba( 190, 185, 189, 1 );
+  --MENU-HEADER-color: rgba( 52, 55, 65, 1 );
+  --MENU-HOME-LINK-color: rgba( 52, 55, 65, 1 );
+  --MENU-HOME-LINK-HOVER-color: rgba( 0, 0, 0, 1 );
+  --MENU-SEARCH-color: rgba( 52, 55, 65, 1 );
+  --MENU-SEARCH-BG-color: rgba( 240, 238, 239, 1 );
+  --MENU-SEARCH-BORDER-color: rgba( 160, 155, 159, 1 );
+  --MENU-SECTIONS-BG-color: rgba( 232, 229, 231, 1 );
+  --MENU-SECTIONS-ACTIVE-BG-color: rgba( 216, 212, 215, 1 );
+  --MENU-SECTIONS-LINK-color: rgba( 52, 55, 65, 1 );
+  --MENU-SECTIONS-LINK-HOVER-color: rgba( 0, 0, 0, 1 );
+  --MENU-SECTION-ACTIVE-CATEGORY-color: rgba( 62, 116, 163, 1 );
+  --MENU-SECTION-ACTIVE-CATEGORY-BG-color: rgba( 255, 255, 255, 1 );
+  --MENU-SECTION-SEPARATOR-color: rgba( 190, 185, 189, 1 );
+
+  --MAIN-BG-color: rgba( 255, 255, 255, 1 );
+  --MAIN-TEXT-color: rgba( 24, 24, 24, 1 );
+  --MAIN-TITLES-TEXT-color: rgba( 52, 55, 65, 1 );
+  --MAIN-TITLES-H1-TEXT-color: rgba( 52, 55, 65, 1 );
+
+  --CODE-theme: relearn-light;
+  --CODE-BLOCK-color: rgba( 39, 40, 34, 1 );
+  --CODE-BLOCK-BG-color: rgba( 249, 249, 250, 1 );
+  --CODE-BLOCK-BORDER-color: rgba( 216, 212, 215, 1 );
+  --CODE-INLINE-color: rgba( 68, 92, 60, 1 );
+  --CODE-INLINE-BG-color: rgba( 243, 247, 240, 1 );
+  --CODE-INLINE-BORDER-color: rgba( 216, 228, 210, 1 );
+
+  --BROWSER-theme: light;
+  --MERMAID-theme: default;
+  --OPENAPI-theme: light;
+  --OPENAPI-CODE-theme: idea;
+
+  --BOX-CAPTION-color: rgba( 255, 255, 255, 1 );
+  --BOX-BG-color: rgba( 255, 255, 255, .833 );
+  --BOX-TEXT-color: rgba( 16, 16, 16, 1 );
+
+  /* Notice/box colour ramp, remapped to the GATAS palette. Relearn hardcodes a
+     generic web-colour ramp for these; params.boxStyle in hugo.toml points the
+     ramp at these variables so light and dark each get their own values. */
+  --GATAS-BOX-GREEN-color: rgba( 111, 180, 80, 1 );      /* tip */
+  --GATAS-BOX-BLUE-color: rgba( 62, 116, 163, 1 );       /* info */
+  --GATAS-BOX-ORANGE-color: rgba( 214, 126, 34, 1 );     /* note */
+  --GATAS-BOX-RED-color: rgba( 197, 48, 28, 1 );         /* warning */
+  --GATAS-BOX-CYAN-color: rgba( 47, 138, 148, 1 );       /* important */
+  --GATAS-BOX-MAGENTA-color: rgba( 158, 62, 132, 1 );    /* caution */
+  --GATAS-BOX-GREY-color: rgba( 146, 141, 145, 1 );      /* neutral */
+
+  /* used by the site's own components (see custom.css) */
+  --GATAS-CARD-BORDER-color: rgba( 216, 212, 215, 1 );
+  --GATAS-CARD-BG-color: rgba( 250, 250, 250, 1 );
+  --GATAS-TABLE-HEAD-BG-color: rgba( 232, 229, 231, 1 );
+  --GATAS-TABLE-STRIPE-BG-color: rgba( 248, 247, 248, 1 );
+  --GATAS-MUTED-color: rgba( 100, 100, 105, 1 );
+  /* Section band: a shade off the page, distinct from the card background so a
+     grid of cards sitting inside a band still separates from it. */
+  --GATAS-BAND-BG-color: rgba( 243, 241, 243, 1 );
+}
