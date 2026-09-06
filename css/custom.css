@@ -525,8 +525,13 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 /* --- lab-portfolio adjustments ------------------------------------------- */
 
 /* Relearn targets a documentation reading measure; a portfolio wants room for
-   images. */
-:root { --MAIN-WIDTH-MAX: 96rem; }
+   images -- but not unlimited room. --MAIN-WIDTH-MAX covers the sidebar too, so
+   96rem left about 71rem of content against a 46rem column of prose, and the
+   25rem of dead space to the right of every paragraph read as a mistake rather
+   than a margin. 88rem closes it to about 17rem, which reads as a margin. It is
+   also the floor: below roughly 88rem the members grid drops from four faces a
+   row to three. */
+:root { --MAIN-WIDTH-MAX: 88rem; }
 
 /* Headings sized up from the theme's dense reference scale, with more air. */
 #R-body h1 { font-size: 2.6rem; letter-spacing: -0.01em; }
@@ -792,3 +797,203 @@ dialog.gatas-lightbox .gatas-lightbox__close {
   .gatas-list--news .gatas-item { flex-direction: column; }
   .gatas-list--news .gatas-item__thumb { flex: 0 0 auto; max-width: min(100%, 24rem); }
 }
+
+
+/* ===========================================================================
+   Reading less like documentation
+   ---------------------------------------------------------------------------
+   The sidebar stays: the site is also reference material for people in the
+   lab. Everything below is about the content column, which does not have to
+   read like an API reference just because the navigation does.
+   =========================================================================== */
+
+/* --- page titles ----------------------------------------------------------- */
+
+/* Relearn centres the page title and sets it in all caps. That is a manual
+   header; on a lab site "MEMBERS" floating above a group photo reads as a
+   section divider in a spec rather than the start of a page. Left-aligned and
+   sentence case, so the title starts where the prose starts. */
+#R-body-inner > .flex-block-wrapper article h1 {
+  text-align: start;
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+#R-body-inner > .flex-block-wrapper article.narrow h1 { border-bottom: 0; }
+
+#R-body h2 { font-weight: 650; letter-spacing: -0.01em; }
+#R-body h3 { font-weight: 650; }
+
+/* --- reading measure ------------------------------------------------------- */
+
+/* --MAIN-WIDTH-MAX is 96rem so galleries and card grids have room, but prose
+   set to 96rem runs past 120 characters a line, which is where a page stops
+   being read and starts being scanned -- the documentation reflex. Constrain
+   running text only; grids, figures, tables and heroes keep the full column. */
+#R-body article > p,
+#R-body article > ul,
+#R-body article > ol,
+#R-body article > blockquote,
+#R-body article > h2,
+#R-body article > h3,
+#R-body article > h4 {
+  max-width: 46rem;
+}
+
+/* Lists nested under a constrained list must not re-constrain and step inwards
+   again on every level. */
+#R-body article > ul ul,
+#R-body article > ol ol { max-width: none; }
+
+/* The other half of the measure. Relearn sets body text at 1.015625rem, a
+   density that suits a reference page being scanned for one line; at 46rem that
+   is about 88 characters, which is past where a line is comfortable to read
+   straight through. Larger type brings the same column down to roughly 78. */
+#R-body article > p,
+#R-body article > ul,
+#R-body article > ol { font-size: 1.1rem; }
+
+/* Markdown wraps a standalone image in a paragraph, so the measure would shrink
+   every figure on the site to the width of running text. Photos are not prose;
+   give them the column back. */
+#R-body article > p:has(img),
+#R-body article > p:has(video) { max-width: none; }
+
+/* --- mono as the lab's voice ----------------------------------------------- */
+
+/* The site already loads JuliaMono for code. Reusing it for the small
+   structural labels -- dates, eyebrows, metadata -- costs no extra download and
+   gives the pages an identity that reads as a computational lab, where
+   otherwise every word on the site is set in the same system sans at the same
+   weight. Kept to labels: mono running text would be worse than plain. */
+.gatas-eyebrow,
+.gatas-list--news .gatas-item__meta {
+  font-family: JuliaMono-Regular, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-eyebrow { margin: 0 0 0.6rem; }
+
+/* --- home page hero -------------------------------------------------------- */
+
+/* The home page used to open with the theme's centred title, then the brand
+   bar, then a paragraph that began by expanding the acronym. A visitor met a
+   definition before a claim. The hero leads with the claim and gives them two
+   places to go.
+
+   `:has()` hides the theme's own <h1> only on the page carrying the hero, so
+   the hero's headline is the page's single h1 and every other page keeps its
+   title. */
+#R-body-inner:has(.gatas-hero--home) > .flex-block-wrapper article > h1 { display: none; }
+
+.gatas-hero--home { margin: 0 0 2.5rem; }
+
+/* The brand bar used to be the first thing on the page and was sized to fill
+   the column. Now that a headline leads, a full-width mark competes with it --
+   so the bar drops back to a supporting lockup at its natural reading size. */
+.gatas-hero--home img {
+  display: block;
+  max-width: 34rem;
+  /* The theme centres block images; left-aligned, the bar lines up with the
+     headline and the buttons instead of floating between them. */
+  margin: 0.5rem auto 0 0 !important;
+}
+
+.gatas-hero--home .gatas-hero__title {
+  margin: 0 0 0.75rem;
+  max-width: 20ch;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.gatas-hero--home .gatas-hero__tagline {
+  max-width: 46rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--GATAS-MUTED-color);
+}
+
+.gatas-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0 0 2rem;
+}
+
+.gatas-hero__actions .gatas-btn { padding: 0.5rem 1.1rem; font-size: 0.95rem; }
+
+.gatas-btn--primary {
+  background: var(--INTERNAL-MAIN-LINK-color);
+  color: var(--MAIN-BG-color) !important;
+}
+
+.gatas-btn--primary:hover { filter: brightness(1.12); }
+
+@media screen and (max-width: 48rem) {
+  .gatas-hero--home .gatas-hero__title { font-size: 2.1rem; }
+  .gatas-hero--home .gatas-hero__tagline { font-size: 1.05rem; }
+}
+
+/* --- call to action -------------------------------------------------------- */
+
+/* Recruiting copy and event announcements were living in `notice` boxes. An
+   admonition is the most recognisable documentation component there is, and it
+   tells the reader "aside, safe to skip" -- the opposite of what a hiring
+   notice wants. This is the same information given a shape of its own. */
+.gatas-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 2rem 0;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--GATAS-CARD-BORDER-color);
+  border-inline-start: 4px solid var(--INTERNAL-MAIN-LINK-color);
+  border-radius: 6px;
+  background: var(--GATAS-CARD-BG-color);
+}
+
+.gatas-cta__body { flex: 1 1 22rem; min-width: 0; }
+
+/* #R-body h2 sets a 2.4rem top margin and wins on id specificity, which opens
+   a hole above the heading inside the box. */
+#R-body .gatas-cta__body h2,
+#R-body .gatas-cta__body h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
+.gatas-cta__body p { margin: 0; max-width: 46rem; color: var(--GATAS-MUTED-color); }
+.gatas-cta__body > :last-child { margin-bottom: 0; }
+.gatas-cta__action { flex: 0 0 auto; }
+
+/* Quiet variant for something that is context rather than an invitation --
+   a conference already held, say. */
+.gatas-cta--quiet { border-inline-start-color: var(--GATAS-CARD-BORDER-color); }
+
+/* --- section banding ------------------------------------------------------- */
+
+/* Every page is one column on one background, sections separated only by an
+   h2, which is exactly the rhythm of a reference manual. A band pulls out to
+   the column edges and puts a section on its own ground, so the page has more
+   than one texture as you scroll. */
+.gatas-band {
+  margin: 2.75rem -1.6rem;
+  padding: 2rem 1.6rem 2.25rem;
+  background: var(--GATAS-BAND-BG-color);
+  border-block: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+.gatas-band > :first-child { margin-top: 0; }
+.gatas-band > :last-child { margin-bottom: 0; }
+.gatas-band h2 { margin-top: 0; }
