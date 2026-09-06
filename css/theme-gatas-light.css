@@ -1,5 +1,8 @@
 :root {
-  /* gatas-light — UF warm grey sidebar, GATAS green accents, blue links */
+  /* gatas-light — UF warm grey sidebar, GATAS green accents, blue links.
+     The sidebar and band greys are warm on purpose: they are the neutral the
+     GATAS hues (blue, green, violet, coral) sit against, and a page built out
+     of cool greys and cool accents has nothing to push against. */
   --PRIMARY-color: rgba( 111, 180, 80, 1 );          /* GATAS green */
   --PRIMARY-HOVER-color: rgba( 88, 148, 61, 1 );
   --SECONDARY-color: rgba( 62, 116, 163, 1 );        /* link blue */
@@ -7,21 +10,21 @@
   --ACCENT-color: rgba( 250, 70, 22, 1 );            /* UF orange, search highlights */
   --ACCENT-HOVER-color: rgba( 214, 56, 14, 1 );
 
-  --MENU-HEADER-BG-color: rgba( 216, 212, 215, 1 );  /* UF warm grey 1 */
-  --MENU-HEADER-BORDER-color: rgba( 190, 185, 189, 1 );
+  --MENU-HEADER-BG-color: rgba( 219, 213, 204, 1 );  /* UF warm grey 1 */
+  --MENU-HEADER-BORDER-color: rgba( 194, 187, 176, 1 );
   --MENU-HEADER-color: rgba( 52, 55, 65, 1 );
   --MENU-HOME-LINK-color: rgba( 52, 55, 65, 1 );
   --MENU-HOME-LINK-HOVER-color: rgba( 0, 0, 0, 1 );
   --MENU-SEARCH-color: rgba( 52, 55, 65, 1 );
-  --MENU-SEARCH-BG-color: rgba( 240, 238, 239, 1 );
-  --MENU-SEARCH-BORDER-color: rgba( 160, 155, 159, 1 );
-  --MENU-SECTIONS-BG-color: rgba( 232, 229, 231, 1 );
-  --MENU-SECTIONS-ACTIVE-BG-color: rgba( 216, 212, 215, 1 );
+  --MENU-SEARCH-BG-color: rgba( 243, 240, 234, 1 );
+  --MENU-SEARCH-BORDER-color: rgba( 164, 157, 146, 1 );
+  --MENU-SECTIONS-BG-color: rgba( 235, 231, 224, 1 );
+  --MENU-SECTIONS-ACTIVE-BG-color: rgba( 222, 216, 207, 1 );
   --MENU-SECTIONS-LINK-color: rgba( 52, 55, 65, 1 );
   --MENU-SECTIONS-LINK-HOVER-color: rgba( 0, 0, 0, 1 );
   --MENU-SECTION-ACTIVE-CATEGORY-color: rgba( 62, 116, 163, 1 );
   --MENU-SECTION-ACTIVE-CATEGORY-BG-color: rgba( 255, 255, 255, 1 );
-  --MENU-SECTION-SEPARATOR-color: rgba( 190, 185, 189, 1 );
+  --MENU-SECTION-SEPARATOR-color: rgba( 194, 187, 176, 1 );
 
   --MAIN-BG-color: rgba( 255, 255, 255, 1 );
   --MAIN-TEXT-color: rgba( 24, 24, 24, 1 );
@@ -63,6 +66,37 @@
   --GATAS-TABLE-STRIPE-BG-color: rgba( 248, 247, 248, 1 );
   --GATAS-MUTED-color: rgba( 100, 100, 105, 1 );
   /* Section band: a shade off the page, distinct from the card background so a
-     grid of cards sitting inside a band still separates from it. */
-  --GATAS-BAND-BG-color: rgba( 243, 241, 243, 1 );
+     grid of cards sitting inside a band still separates from it. Warm rather
+     than neutral grey -- it is the complement the cool GATAS hues sit against,
+     and a page of pure greys is what makes the site read as a spec sheet. */
+  --GATAS-BAND-BG-color: rgba( 247, 244, 238, 1 );
+
+  /* --- brand hues ---------------------------------------------------------
+     The logo is a commuting square of four coloured nodes, and the UF bar adds
+     an orange; those five, plus a teal to bridge the green and the blue, are
+     the palette the site decorates with. These are surface colours -- rules,
+     washes, accent bars -- and are not safe to set small text in.
+
+     Tint/wash strength lives here too, because the same hue needs a lighter
+     hand on a white page than it does on the dark canvas. */
+  --GATAS-HUE-BLUE-color: rgba( 59, 111, 212, 1 );
+  --GATAS-HUE-GREEN-color: rgba( 111, 180, 80, 1 );
+  --GATAS-HUE-VIOLET-color: rgba( 155, 79, 196, 1 );
+  --GATAS-HUE-CORAL-color: rgba( 201, 72, 60, 1 );
+  --GATAS-HUE-ORANGE-color: rgba( 224, 106, 22, 1 );
+  --GATAS-HUE-TEAL-color: rgba( 47, 138, 148, 1 );
+
+  /* Text-safe counterparts: each clears 4.5:1 against --MAIN-BG-color, so a
+     date, a label or a badge can be set in one at small sizes. */
+  --GATAS-INK-BLUE-color: rgba( 47, 98, 196, 1 );
+  --GATAS-INK-GREEN-color: rgba( 63, 122, 44, 1 );
+  --GATAS-INK-VIOLET-color: rgba( 138, 62, 178, 1 );
+  --GATAS-INK-CORAL-color: rgba( 179, 58, 46, 1 );
+  --GATAS-INK-ORANGE-color: rgba( 168, 84, 16, 1 );
+  --GATAS-INK-TEAL-color: rgba( 31, 110, 120, 1 );
+
+  /* How much hue goes into a surface (mixed with the page) and into a gradient
+     wash (mixed with transparent). */
+  --GATAS-TINT-strength: 9%;
+  --GATAS-WASH-strength: 13%;
 }

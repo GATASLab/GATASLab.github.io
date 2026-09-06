@@ -1076,3 +1076,270 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 .gatas-band > :first-child { margin-top: 0; }
 .gatas-band > :last-child { margin-bottom: 0; }
 .gatas-band h2 { margin-top: 0; }
+
+/* ===========================================================================
+   Colour
+   ---------------------------------------------------------------------------
+   The pages above are laid out in greys: a grey sidebar, a white column, grey
+   bands, and colour only where the theme puts a link. That is legible and
+   completely anonymous -- and the lab's own mark is a commuting square of four
+   coloured nodes, which is a palette sitting unused.
+
+   So: the four logo hues plus the UF orange, used as decoration rather than as
+   text. Every rule here colours a border, a wash, a small label or a hover
+   state; body copy, headings and links keep the contrast they had. Where a
+   hue does carry text, it comes from the --GATAS-INK-* set, which is picked to
+   clear 4.5:1 on both canvases.
+
+   Elements that cycle through hues set --gatas-accent on themselves, and the
+   component reads that one variable, so a card, a chip and a heading tick all
+   pick up their colour the same way.
+   =========================================================================== */
+
+/* --- how a hue is applied -------------------------------------------------
+   A wash is the hue over the page; a tint is the hue mixed into a surface. The
+   strengths are per-variant (a dark canvas needs more) and live in the theme
+   files. */
+
+:root {
+  --gatas-accent: var(--GATAS-HUE-GREEN-color);
+  --gatas-accent-ink: var(--GATAS-INK-GREEN-color);
+}
+
+/* --- home hero ------------------------------------------------------------ */
+
+/* The headline used to open on the same white as the rest of the page. Four
+   soft washes -- the logo's blue, green and violet, and the UF orange -- put it
+   on ground of its own without printing a single hard edge. */
+.gatas-hero--home {
+  margin: 0 -1.6rem 2.5rem;
+  padding: 2.5rem 1.6rem 2rem;
+  background:
+    radial-gradient(46rem 28rem at 6% 10%,
+      color-mix(in srgb, var(--GATAS-HUE-BLUE-color) calc(var(--GATAS-WASH-strength) * 1.7), transparent), transparent 70%),
+    radial-gradient(44rem 26rem at 82% 0%,
+      color-mix(in srgb, var(--GATAS-HUE-GREEN-color) calc(var(--GATAS-WASH-strength) * 1.6), transparent), transparent 70%),
+    radial-gradient(42rem 26rem at 66% 110%,
+      color-mix(in srgb, var(--GATAS-HUE-VIOLET-color) calc(var(--GATAS-WASH-strength) * 1.6), transparent), transparent 70%),
+    radial-gradient(30rem 20rem at 8% 118%,
+      color-mix(in srgb, var(--GATAS-HUE-ORANGE-color) calc(var(--GATAS-WASH-strength) * 1.2), transparent), transparent 70%);
+  border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
+}
+
+/* --- eyebrows and dates ---------------------------------------------------- */
+
+/* These labels were grey on grey: present, but doing no work. In the accent
+   ink they read as the lab's own furniture, and a news date becomes something
+   the eye can find down a long list. */
+.gatas-eyebrow { color: var(--GATAS-INK-ORANGE-color); }
+.gatas-list--news .gatas-item__meta { color: var(--GATAS-INK-TEAL-color); }
+
+/* --- headings -------------------------------------------------------------- */
+
+/* The page title carried a full-width grey rule, which is a divider in a
+   manual. A short bar in the brand's own gradient says the same thing and
+   says whose page it is. */
+#R-body-inner > .flex-block-wrapper article h1 {
+  border-bottom: 0;
+  padding-bottom: 0.6rem;
+  position: relative;
+}
+
+#R-body-inner > .flex-block-wrapper article h1::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  width: 5.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    var(--GATAS-HUE-BLUE-color),
+    var(--GATAS-HUE-GREEN-color) 45%,
+    var(--GATAS-HUE-VIOLET-color) 75%,
+    var(--GATAS-HUE-ORANGE-color));
+}
+
+/* Section headings get a tick of a single hue, cycling down the page in the
+   logo's order, so scrolling a long page has a rhythm to it. */
+#R-body article > h2 {
+  position: relative;
+  padding-top: 0.7rem;
+}
+
+#R-body article > h2::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 2.25rem;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gatas-accent);
+}
+
+#R-body article > h2:nth-of-type(4n+1) { --gatas-accent: var(--GATAS-HUE-BLUE-color); }
+#R-body article > h2:nth-of-type(4n+2) { --gatas-accent: var(--GATAS-HUE-GREEN-color); }
+#R-body article > h2:nth-of-type(4n+3) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
+#R-body article > h2:nth-of-type(4n+4) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); }
+
+/* Only a heading that is a direct child of the article gets a tick: one inside
+   a band or a call-to-action belongs to that component, and the component
+   already carries the colour. */
+
+/* --- cards ----------------------------------------------------------------- */
+
+/* A grid of white rectangles reads as a table with pictures. A coloured cap on
+   each card turns the same grid into a set of distinct things, and the hue
+   cycles so a row of four never repeats. */
+.gatas-card {
+  border-top: 3px solid var(--gatas-accent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+/* The ink half of the pair travels with the hue, so anything inside the card
+   that carries text -- a chip, a label -- reads as part of the same card
+   rather than picking a colour of its own. */
+.gatas-grid > .gatas-card:nth-child(4n+1) { --gatas-accent: var(--GATAS-HUE-BLUE-color); --gatas-accent-ink: var(--GATAS-INK-BLUE-color); }
+.gatas-grid > .gatas-card:nth-child(4n+2) { --gatas-accent: var(--GATAS-HUE-GREEN-color); --gatas-accent-ink: var(--GATAS-INK-GREEN-color); }
+.gatas-grid > .gatas-card:nth-child(4n+3) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
+.gatas-grid > .gatas-card:nth-child(4n+4) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
+
+.gatas-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--gatas-accent) 45%, var(--GATAS-CARD-BORDER-color));
+  border-top-color: var(--gatas-accent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--gatas-accent) 18%, transparent);
+}
+
+/* The thumbnail plate is the card's own ground; a wash of its hue keeps a
+   figure with a white background from cutting a hole in the card. */
+.gatas-card__thumb {
+  background: color-mix(in srgb, var(--gatas-accent) calc(var(--GATAS-TINT-strength) / 2), var(--MAIN-BG-color));
+}
+
+/* A headshot fills its plate, so the wash would never show. The figure cards
+   keep the white plate they had -- several of those diagrams are drawn on
+   white and would otherwise sit in a coloured hole. (Restated here because the
+   tint above is declared later in the file than the original rule.) */
+.gatas-grid--people .gatas-card__thumb { background: var(--MAIN-BG-color); }
+.gatas-grid--figures .gatas-card__thumb { background: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gatas-card { transition: none; }
+  .gatas-card:hover { transform: none; }
+}
+
+/* --- bands ----------------------------------------------------------------- */
+
+/* The band already pulled a section onto its own ground. A hairline of the
+   section's hue along the top, and an optional tint, make it a place rather
+   than a shade of grey. Add `gatas-band--blue|green|violet|orange` in the
+   markup to pick the hue; the default is the warm neutral with a green rule. */
+.gatas-band {
+  border-block-start: 3px solid var(--gatas-accent);
+  background:
+    linear-gradient(color-mix(in srgb, var(--gatas-accent) var(--GATAS-TINT-strength), transparent), transparent 12rem),
+    var(--GATAS-BAND-BG-color);
+}
+
+.gatas-band--blue { --gatas-accent: var(--GATAS-HUE-BLUE-color); }
+.gatas-band--green { --gatas-accent: var(--GATAS-HUE-GREEN-color); }
+.gatas-band--violet { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
+.gatas-band--orange { --gatas-accent: var(--GATAS-HUE-ORANGE-color); }
+
+/* --- call to action -------------------------------------------------------- */
+
+/* An invitation should look like one. The orange edge and a wash behind it are
+   the loudest thing on a page, which is the point; the quiet variant keeps the
+   neutral edge it had. */
+.gatas-cta {
+  --gatas-accent: var(--GATAS-HUE-ORANGE-color);
+  border-inline-start-color: var(--gatas-accent);
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--gatas-accent) var(--GATAS-TINT-strength), transparent), transparent 60%),
+    var(--GATAS-CARD-BG-color);
+}
+
+.gatas-cta--quiet {
+  --gatas-accent: var(--GATAS-CARD-BORDER-color);
+  background: var(--GATAS-CARD-BG-color);
+}
+
+/* --- chips, badges and facts ------------------------------------------------ */
+
+/* Chips carry structured data -- on this site, the people who work on a
+   package -- and were drawn as outlines of one colour at half opacity. Tinted,
+   they stop looking like disabled buttons. They take their hue from whatever
+   contains them, so a card's chips match its cap: a person is not a different
+   colour in every card, and the row of chips still reads as one card's roster
+   rather than as confetti. */
+.gatas-chip {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--gatas-accent) 40%, transparent);
+  background: color-mix(in srgb, var(--gatas-accent) var(--GATAS-TINT-strength), var(--MAIN-BG-color));
+  color: var(--gatas-accent-ink);
+}
+
+.gatas-chip--link:hover, .gatas-chip--link:focus-visible {
+  background: var(--gatas-accent);
+  color: var(--MAIN-BG-color);
+  border-color: var(--gatas-accent);
+}
+
+/* A status badge is a status, so it gets filled rather than outlined. */
+.gatas-badge {
+  border-color: color-mix(in srgb, currentColor 45%, transparent);
+  background: color-mix(in srgb, currentColor var(--GATAS-TINT-strength), var(--MAIN-BG-color));
+}
+
+.gatas-badge--active { color: var(--GATAS-INK-GREEN-color); }
+
+/* The label above each fact on a member page: teal reads as a caption rather
+   than as more of the same grey. */
+.gatas-fact dt { color: var(--GATAS-INK-TEAL-color); }
+
+/* --- tables ---------------------------------------------------------------- */
+
+/* The header row was a grey band on a white table -- the exact look of a data
+   dump. A green wash and a green rule under it give the table a top edge that
+   belongs to the site. */
+table.gatas-table thead th {
+  background: color-mix(in srgb, var(--GATAS-HUE-GREEN-color) var(--GATAS-TINT-strength), var(--MAIN-BG-color));
+  border-bottom: 2px solid color-mix(in srgb, var(--GATAS-HUE-GREEN-color) 55%, transparent);
+}
+
+table.gatas-table tbody tr:hover {
+  background: color-mix(in srgb, var(--GATAS-HUE-BLUE-color) var(--GATAS-TINT-strength), var(--MAIN-BG-color));
+}
+
+/* --- quotes ---------------------------------------------------------------- */
+
+#R-body article > blockquote {
+  border-inline-start: 3px solid var(--GATAS-HUE-VIOLET-color);
+  background: color-mix(in srgb, var(--GATAS-HUE-VIOLET-color) calc(var(--GATAS-TINT-strength) / 1.5), transparent);
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- sidebar ---------------------------------------------------------------- */
+
+/* Each top-level section keeps one hue, in its icon, all the way down the menu.
+   It is the only colour in the sidebar and it makes the nav scannable by
+   something other than reading it. */
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+1) { --gatas-accent-ink: var(--GATAS-INK-BLUE-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+2) { --gatas-accent-ink: var(--GATAS-INK-GREEN-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+3) { --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+4) { --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+5) { --gatas-accent-ink: var(--GATAS-INK-TEAL-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+6) { --gatas-accent-ink: var(--GATAS-INK-CORAL-color); }
+
+#R-content-wrapper .R-shortcutmenu-main > ul > li > a > i {
+  color: var(--gatas-accent-ink);
+}
+
+/* The active section is already lit; the bar down its edge says where you are
+   without needing the highlight to be any stronger. */
+#R-content-wrapper .R-shortcutmenu-main > ul > li.active > a {
+  box-shadow: inset 3px 0 0 var(--gatas-accent-ink);
+}
