@@ -66,27 +66,33 @@
   --GATAS-BAND-BG-color: rgba( 40, 41, 50, 1 );
 
   /* --- brand hues ---------------------------------------------------------
-     The same five logo/UF hues plus the bridging teal, lifted for the dark
-     canvas. See the light variant for what each group is for. */
-  --GATAS-HUE-BLUE-color: rgba( 127, 166, 240, 1 );
-  --GATAS-HUE-GREEN-color: rgba( 130, 199, 100, 1 );
-  --GATAS-HUE-VIOLET-color: rgba( 199, 123, 224, 1 );
-  --GATAS-HUE-CORAL-color: rgba( 228, 121, 108, 1 );
-  --GATAS-HUE-ORANGE-color: rgba( 240, 147, 85, 1 );
-  --GATAS-HUE-TEAL-color: rgba( 92, 182, 192, 1 );
+     The same six as the light variant, and deliberately the same values. The
+     pastels sit at mid lightness, which is dark enough to read as a rule on
+     white and light enough to read as one on this canvas -- so the hue set
+     does not fork, and a card cap is literally the logo's colour in both
+     themes. Only the ink set below has to differ. */
+  --GATAS-HUE-BLUE-color: rgba( 94, 156, 199, 1 );      /* logo, the G node */
+  --GATAS-HUE-GREEN-color: rgba( 128, 190, 99, 1 );     /* logo, the A nodes */
+  --GATAS-HUE-ORANGE-color: rgba( 225, 127, 54, 1 );    /* logo, the S node */
+  --GATAS-HUE-VIOLET-color: rgba( 194, 94, 182, 1 );    /* UF Perennial, pastel */
+  --GATAS-HUE-CORAL-color: rgba( 208, 106, 114, 1 );    /* UF Bottlebrush, pastel */
+  --GATAS-HUE-GOLD-color: rgba( 211, 168, 67, 1 );      /* UF Alachua, pastel */
 
-  --GATAS-INK-BLUE-color: rgba( 127, 166, 240, 1 );
-  --GATAS-INK-GREEN-color: rgba( 150, 219, 120, 1 );
-  --GATAS-INK-VIOLET-color: rgba( 210, 148, 232, 1 );
-  --GATAS-INK-CORAL-color: rgba( 234, 143, 132, 1 );
-  --GATAS-INK-ORANGE-color: rgba( 240, 162, 106, 1 );
-  --GATAS-INK-TEAL-color: rgba( 92, 182, 192, 1 );
+  /* Walked toward white instead, until each clears 5:1 on the dark canvas.
+     The green and the gold were already there and are left alone. */
+  --GATAS-INK-BLUE-color: rgba( 125, 175, 210, 1 );
+  --GATAS-INK-GREEN-color: rgba( 128, 190, 99, 1 );
+  --GATAS-INK-ORANGE-color: rgba( 230, 150, 90, 1 );
+  --GATAS-INK-VIOLET-color: rgba( 214, 147, 206, 1 );
+  --GATAS-INK-CORAL-color: rgba( 222, 149, 155, 1 );
+  --GATAS-INK-GOLD-color: rgba( 211, 168, 67, 1 );
 
   /* A hue has to be laid on more thickly to register against a dark ground
-     than against white. */
-  --GATAS-TINT-strength: 16%;
+     than against white, and these pastels are quieter than the saturated hues
+     they replaced, so the tint is up again. */
+  --GATAS-TINT-strength: 19%;
   /* Washes go the other way: a pale hue laid thickly over a dark ground turns
-     muddy rather than colourful, so the gradients are lighter here than they
+     muddy rather than colourful, so the gradients stay lighter here than they
      are on white. */
-  --GATAS-WASH-strength: 10%;
+  --GATAS-WASH-strength: 12%;
 }

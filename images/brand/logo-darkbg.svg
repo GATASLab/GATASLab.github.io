@@ -69,8 +69,8 @@
          rx="18"
          cy="-76"
          cx="18"
-         stroke="#3a5fcd"
-         fill="#4876ff" />
+         stroke="#46738f"
+         fill="#5e9cc7" />
     </g>
     <!-- code2 -->
     <g
@@ -84,8 +84,8 @@
          rx="18"
          cy="-18"
          cx="18"
-         stroke="#cd3333"
-         fill="indianred" />
+         stroke="#527a3f"
+         fill="#80be63" />
     </g>
     <!-- code1&#45;&gt;code2 -->
     <g
@@ -118,8 +118,8 @@
          rx="18"
          cy="-76"
          cx="76"
-         stroke="forestgreen"
-         fill="mediumseagreen" />
+         stroke="#527a3f"
+         fill="#80be63" />
     </g>
     <!-- code1&#45;&gt;m1 -->
     <g
@@ -152,8 +152,8 @@
          rx="18"
          cy="-18"
          cx="76"
-         stroke="#b452cd"
-         fill="#cd69c9" />
+         stroke="#a45d27"
+         fill="#e17f36" />
     </g>
     <!-- code2&#45;&gt;m2 -->
     <g

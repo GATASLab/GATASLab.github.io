@@ -528,25 +528,69 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 /* --- misc ------------------------------------------------------------------ */
 
-.gatas-sponsor-logos {
+/* Sponsor logos, built to mirror the project team at the top of the page: the
+   same column width, the same round plate, the same caption underneath. A
+   funder and a person are both "who is behind this project", and the page says
+   so twice in the same shape. The logos themselves are seals and wordmarks of
+   wildly different aspect ratios, so each one is contained inside the plate
+   rather than filling it the way a headshot does. */
+.gatas-sponsors {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  align-items: center;
-  margin: 1rem 0;
+  gap: 1rem;
+  padding: 0;
+  margin: 0.4rem 0 1.4rem;
 }
 
-/* Sponsor logos are bounded by the same box as a project's team headshots, so a
-   wide wordmark cannot out-weigh the faces above it. object-fit keeps the
-   aspect ratio inside that box rather than squashing it. */
-.gatas-sponsor-logos img {
-  max-height: 5.5rem;
-  max-width: 5.5rem;
+.gatas-sponsors li { margin: 0; }
+
+.gatas-sponsors a,
+.gatas-sponsors__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 6.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gatas-sponsors__plate {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  /* Every one of these seals is drawn for a white ground, so the plate carries
+     its own rather than inheriting the page's -- otherwise the dark theme eats
+     the navy in the ONR and AFRL marks. */
+  background: #fff;
+  border: 2px solid var(--GATAS-CARD-BORDER-color);
+  transition: border-color 0.15s ease;
+}
+
+.gatas-sponsors__plate img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
   margin: 0;
 }
+
+.gatas-sponsors a:hover .gatas-sponsors__plate,
+.gatas-sponsors a:focus-visible .gatas-sponsors__plate { border-color: var(--MAIN-LINK-color); }
+
+.gatas-sponsors__name {
+  font-size: 0.82rem;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.gatas-sponsors a:hover .gatas-sponsors__name { color: var(--MAIN-LINK-color); }
 
 #R-body .gatas-embed {
   display: block;
@@ -1082,14 +1126,19 @@ dialog.gatas-lightbox .gatas-lightbox__close {
    ---------------------------------------------------------------------------
    The pages above are laid out in greys: a grey sidebar, a white column, grey
    bands, and colour only where the theme puts a link. That is legible and
-   completely anonymous -- and the lab's own mark is a commuting square of four
+   completely anonymous -- and the lab's own mark is a commuting square of
    coloured nodes, which is a palette sitting unused.
 
-   So: the four logo hues plus the UF orange, used as decoration rather than as
-   text. Every rule here colours a border, a wash, a small label or a hover
-   state; body copy, headings and links keep the contrast they had. Where a
-   hue does carry text, it comes from the --GATAS-INK-* set, which is picked to
-   clear 4.5:1 on both canvases.
+   So: the mark's own blue, green and orange -- pastels of the UF colours --
+   plus three UF secondaries pitched into the same key, used as decoration
+   rather than as text. Every rule here colours a border, a wash, a small label
+   or a hover state; body copy, headings and links keep the contrast they had.
+   Where a hue does carry text, it comes from the --GATAS-INK-* set, which is
+   picked to clear 5:1 on both canvases.
+
+   Julia's palette is not this palette. It belongs to the package figures under
+   `assets/images/software/`, which are marks for Julia packages, and it does
+   not appear anywhere in the site's own chrome.
 
    Elements that cycle through hues set --gatas-accent on themselves, and the
    component reads that one variable, so a card, a chip and a heading tick all
@@ -1109,8 +1158,8 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 /* --- home hero ------------------------------------------------------------ */
 
 /* The headline used to open on the same white as the rest of the page. Four
-   soft washes -- the logo's blue, green and violet, and the UF orange -- put it
-   on ground of its own without printing a single hard edge. */
+   soft washes -- the mark's blue, green and orange, and the pastel Perennial --
+   put it on ground of its own without printing a single hard edge. */
 .gatas-hero--home {
   margin: 0 -1.6rem 2.5rem;
   padding: 2.5rem 1.6rem 2rem;
@@ -1120,9 +1169,9 @@ dialog.gatas-lightbox .gatas-lightbox__close {
     radial-gradient(44rem 26rem at 82% 0%,
       color-mix(in srgb, var(--GATAS-HUE-GREEN-color) calc(var(--GATAS-WASH-strength) * 1.6), transparent), transparent 70%),
     radial-gradient(42rem 26rem at 66% 110%,
-      color-mix(in srgb, var(--GATAS-HUE-VIOLET-color) calc(var(--GATAS-WASH-strength) * 1.6), transparent), transparent 70%),
+      color-mix(in srgb, var(--GATAS-HUE-ORANGE-color) calc(var(--GATAS-WASH-strength) * 1.6), transparent), transparent 70%),
     radial-gradient(30rem 20rem at 8% 118%,
-      color-mix(in srgb, var(--GATAS-HUE-ORANGE-color) calc(var(--GATAS-WASH-strength) * 1.2), transparent), transparent 70%);
+      color-mix(in srgb, var(--GATAS-HUE-VIOLET-color) calc(var(--GATAS-WASH-strength) * 1.2), transparent), transparent 70%);
   border-bottom: 1px solid var(--GATAS-CARD-BORDER-color);
 }
 
@@ -1132,7 +1181,7 @@ dialog.gatas-lightbox .gatas-lightbox__close {
    ink they read as the lab's own furniture, and a news date becomes something
    the eye can find down a long list. */
 .gatas-eyebrow { color: var(--GATAS-INK-ORANGE-color); }
-.gatas-list--news .gatas-item__meta { color: var(--GATAS-INK-TEAL-color); }
+.gatas-list--news .gatas-item__meta { color: var(--GATAS-INK-GOLD-color); }
 
 /* --- headings -------------------------------------------------------------- */
 
@@ -1155,13 +1204,13 @@ dialog.gatas-lightbox .gatas-lightbox__close {
   border-radius: 2px;
   background: linear-gradient(90deg,
     var(--GATAS-HUE-BLUE-color),
-    var(--GATAS-HUE-GREEN-color) 45%,
-    var(--GATAS-HUE-VIOLET-color) 75%,
+    var(--GATAS-HUE-GREEN-color) 50%,
     var(--GATAS-HUE-ORANGE-color));
 }
 
 /* Section headings get a tick of a single hue, cycling down the page in the
-   logo's order, so scrolling a long page has a rhythm to it. */
+   mark's order -- blue, green, orange -- with the pastel Perennial fourth, so
+   scrolling a long page has a rhythm to it. */
 #R-body article > h2 {
   position: relative;
   padding-top: 0.7rem;
@@ -1180,8 +1229,8 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 #R-body article > h2:nth-of-type(4n+1) { --gatas-accent: var(--GATAS-HUE-BLUE-color); }
 #R-body article > h2:nth-of-type(4n+2) { --gatas-accent: var(--GATAS-HUE-GREEN-color); }
-#R-body article > h2:nth-of-type(4n+3) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
-#R-body article > h2:nth-of-type(4n+4) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); }
+#R-body article > h2:nth-of-type(4n+3) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); }
+#R-body article > h2:nth-of-type(4n+4) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
 
 /* Only a heading that is a direct child of the article gets a tick: one inside
    a band or a call-to-action belongs to that component, and the component
@@ -1191,7 +1240,8 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 /* A grid of white rectangles reads as a table with pictures. A coloured cap on
    each card turns the same grid into a set of distinct things, and the hue
-   cycles so a row of four never repeats. */
+   cycles so a row of four never repeats. The cycle opens on the mark's own
+   three, so the first row of a three-up grid is the logo, left to right. */
 .gatas-card {
   border-top: 3px solid var(--gatas-accent);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -1202,8 +1252,8 @@ dialog.gatas-lightbox .gatas-lightbox__close {
    rather than picking a colour of its own. */
 .gatas-grid > .gatas-card:nth-child(4n+1) { --gatas-accent: var(--GATAS-HUE-BLUE-color); --gatas-accent-ink: var(--GATAS-INK-BLUE-color); }
 .gatas-grid > .gatas-card:nth-child(4n+2) { --gatas-accent: var(--GATAS-HUE-GREEN-color); --gatas-accent-ink: var(--GATAS-INK-GREEN-color); }
-.gatas-grid > .gatas-card:nth-child(4n+3) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
-.gatas-grid > .gatas-card:nth-child(4n+4) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
+.gatas-grid > .gatas-card:nth-child(4n+3) { --gatas-accent: var(--GATAS-HUE-ORANGE-color); --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
+.gatas-grid > .gatas-card:nth-child(4n+4) { --gatas-accent: var(--GATAS-HUE-VIOLET-color); --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
 
 .gatas-card:hover {
   transform: translateY(-2px);
@@ -1234,7 +1284,7 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 /* The band already pulled a section onto its own ground. A hairline of the
    section's hue along the top, and an optional tint, make it a place rather
-   than a shade of grey. Add `gatas-band--blue|green|violet|orange` in the
+   than a shade of grey. Add `gatas-band--blue|green|orange|violet` in the
    markup to pick the hue; the default is the warm neutral with a green rule. */
 .gatas-band {
   border-block-start: 3px solid var(--gatas-accent);
@@ -1245,8 +1295,8 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 .gatas-band--blue { --gatas-accent: var(--GATAS-HUE-BLUE-color); }
 .gatas-band--green { --gatas-accent: var(--GATAS-HUE-GREEN-color); }
-.gatas-band--violet { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
 .gatas-band--orange { --gatas-accent: var(--GATAS-HUE-ORANGE-color); }
+.gatas-band--violet { --gatas-accent: var(--GATAS-HUE-VIOLET-color); }
 
 /* --- call to action -------------------------------------------------------- */
 
@@ -1296,9 +1346,10 @@ dialog.gatas-lightbox .gatas-lightbox__close {
 
 .gatas-badge--active { color: var(--GATAS-INK-GREEN-color); }
 
-/* The label above each fact on a member page: teal reads as a caption rather
-   than as more of the same grey. */
-.gatas-fact dt { color: var(--GATAS-INK-TEAL-color); }
+/* The label above each fact on a member page. The captions take the gold --
+   the sixth hue, and the one the site uses nowhere else -- so that a label is
+   never mistaken for a link, which is what happens to a small blue word. */
+.gatas-fact dt { color: var(--GATAS-INK-GOLD-color); }
 
 /* --- tables ---------------------------------------------------------------- */
 
@@ -1329,10 +1380,10 @@ table.gatas-table tbody tr:hover {
    something other than reading it. */
 #R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+1) { --gatas-accent-ink: var(--GATAS-INK-BLUE-color); }
 #R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+2) { --gatas-accent-ink: var(--GATAS-INK-GREEN-color); }
-#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+3) { --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
-#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+4) { --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
-#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+5) { --gatas-accent-ink: var(--GATAS-INK-TEAL-color); }
-#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+6) { --gatas-accent-ink: var(--GATAS-INK-CORAL-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+3) { --gatas-accent-ink: var(--GATAS-INK-ORANGE-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+4) { --gatas-accent-ink: var(--GATAS-INK-VIOLET-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+5) { --gatas-accent-ink: var(--GATAS-INK-CORAL-color); }
+#R-content-wrapper .R-shortcutmenu-main > ul > li:nth-child(6n+6) { --gatas-accent-ink: var(--GATAS-INK-GOLD-color); }
 
 #R-content-wrapper .R-shortcutmenu-main > ul > li > a > i {
   color: var(--gatas-accent-ink);

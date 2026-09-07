@@ -72,31 +72,40 @@
   --GATAS-BAND-BG-color: rgba( 247, 244, 238, 1 );
 
   /* --- brand hues ---------------------------------------------------------
-     The logo is a commuting square of four coloured nodes, and the UF bar adds
-     an orange; those five, plus a teal to bridge the green and the blue, are
-     the palette the site decorates with. These are surface colours -- rules,
-     washes, accent bars -- and are not safe to set small text in.
+     The lab's own mark: the GATAS square in `images/brand/gatas_logo.png` is
+     drawn in a soft blue, a soft green and a soft orange, sitting beside the
+     UF wordmark. Those are pastels of the UF colours, and they -- not Julia's
+     four -- are what the site decorates with. Julia's palette belongs to the
+     package figures under `assets/images/software/`, and stops there.
 
-     Tint/wash strength lives here too, because the same hue needs a lighter
-     hand on a white page than it does on the dark canvas. */
-  --GATAS-HUE-BLUE-color: rgba( 59, 111, 212, 1 );
-  --GATAS-HUE-GREEN-color: rgba( 111, 180, 80, 1 );
-  --GATAS-HUE-VIOLET-color: rgba( 155, 79, 196, 1 );
-  --GATAS-HUE-CORAL-color: rgba( 201, 72, 60, 1 );
-  --GATAS-HUE-ORANGE-color: rgba( 224, 106, 22, 1 );
-  --GATAS-HUE-TEAL-color: rgba( 47, 138, 148, 1 );
+     Three of these are lifted straight out of the logo. The other three pitch
+     UF's secondary colours (Perennial, Bottlebrush, Alachua) into the same key
+     -- roughly 55% lightness, middling saturation -- so a six-hue cycle stays
+     one family rather than a logo plus three strangers.
 
-  /* Text-safe counterparts: each clears 4.5:1 against --MAIN-BG-color, so a
-     date, a label or a badge can be set in one at small sizes. */
-  --GATAS-INK-BLUE-color: rgba( 47, 98, 196, 1 );
-  --GATAS-INK-GREEN-color: rgba( 63, 122, 44, 1 );
-  --GATAS-INK-VIOLET-color: rgba( 138, 62, 178, 1 );
-  --GATAS-INK-CORAL-color: rgba( 179, 58, 46, 1 );
-  --GATAS-INK-ORANGE-color: rgba( 168, 84, 16, 1 );
-  --GATAS-INK-TEAL-color: rgba( 31, 110, 120, 1 );
+     These are surface colours: rules, caps, washes. They are not safe to set
+     small text in; that is what the ink set below is for. */
+  --GATAS-HUE-BLUE-color: rgba( 94, 156, 199, 1 );      /* logo, the G node */
+  --GATAS-HUE-GREEN-color: rgba( 128, 190, 99, 1 );     /* logo, the A nodes */
+  --GATAS-HUE-ORANGE-color: rgba( 225, 127, 54, 1 );    /* logo, the S node */
+  --GATAS-HUE-VIOLET-color: rgba( 194, 94, 182, 1 );    /* UF Perennial, pastel */
+  --GATAS-HUE-CORAL-color: rgba( 208, 106, 114, 1 );    /* UF Bottlebrush, pastel */
+  --GATAS-HUE-GOLD-color: rgba( 211, 168, 67, 1 );      /* UF Alachua, pastel */
+
+  /* Text-safe counterparts: the same hue walked toward black until it clears
+     5:1 against --MAIN-BG-color, so a date, a label or a badge can be set in
+     one at small sizes with room to spare over the 4.5:1 bar. */
+  --GATAS-INK-BLUE-color: rgba( 70, 115, 147, 1 );
+  --GATAS-INK-GREEN-color: rgba( 82, 122, 63, 1 );
+  --GATAS-INK-ORANGE-color: rgba( 164, 93, 39, 1 );
+  --GATAS-INK-VIOLET-color: rgba( 163, 79, 153, 1 );
+  --GATAS-INK-CORAL-color: rgba( 168, 86, 92, 1 );
+  --GATAS-INK-GOLD-color: rgba( 135, 108, 43, 1 );
 
   /* How much hue goes into a surface (mixed with the page) and into a gradient
-     wash (mixed with transparent). */
-  --GATAS-TINT-strength: 9%;
-  --GATAS-WASH-strength: 13%;
+     wash (mixed with transparent). The pastels carry less weight than the
+     saturated hues they replaced, so both strengths are up a little to leave
+     the surfaces reading as they did. */
+  --GATAS-TINT-strength: 11%;
+  --GATAS-WASH-strength: 16%;
 }

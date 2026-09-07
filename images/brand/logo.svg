@@ -11,12 +11,12 @@
 <!-- code1 -->
 <g id="node1" class="node">
 <title>code1</title>
-<ellipse fill="#4876ff" stroke="#3a5fcd" cx="18" cy="-76" rx="18" ry="18"/>
+<ellipse fill="#5e9cc7" stroke="#46738f" cx="18" cy="-76" rx="18" ry="18"/>
 </g>
 <!-- code2 -->
 <g id="node2" class="node">
 <title>code2</title>
-<ellipse fill="indianred" stroke="#cd3333" cx="18" cy="-18" rx="18" ry="18"/>
+<ellipse fill="#80be63" stroke="#527a3f" cx="18" cy="-18" rx="18" ry="18"/>
 </g>
 <!-- code1&#45;&gt;code2 -->
 <g id="edge2" class="edge">
@@ -27,7 +27,7 @@
 <!-- m1 -->
 <g id="node3" class="node">
 <title>m1</title>
-<ellipse fill="mediumseagreen" stroke="forestgreen" cx="76" cy="-76" rx="18" ry="18"/>
+<ellipse fill="#80be63" stroke="#527a3f" cx="76" cy="-76" rx="18" ry="18"/>
 </g>
 <!-- code1&#45;&gt;m1 -->
 <g id="edge1" class="edge">
@@ -38,7 +38,7 @@
 <!-- m2 -->
 <g id="node4" class="node">
 <title>m2</title>
-<ellipse fill="#cd69c9" stroke="#b452cd" cx="76" cy="-18" rx="18" ry="18"/>
+<ellipse fill="#e17f36" stroke="#a45d27" cx="76" cy="-18" rx="18" ry="18"/>
 </g>
 <!-- code2&#45;&gt;m2 -->
 <g id="edge3" class="edge">
